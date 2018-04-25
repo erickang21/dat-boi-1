@@ -25,6 +25,8 @@ async def on_ready():
         await asyncio.sleep(10)
         await bot.change_presence(activity=discord.Game(name=f"on discord."))
         await asyncio.sleep(10)
+        await bot.change_presence(activity=discord.Game(name=f"with {len(bot.guilds)} servers boi!"))
+        await asyncio.sleep(10)
 
 
 @bot.command()
