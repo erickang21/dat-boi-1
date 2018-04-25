@@ -56,5 +56,5 @@ class Fun:
             return await ctx.send(f":no_entry_sign: **{user}**, is not a valid username or mention")
             
             
-            def setup(bot):
+def setup(bot):
     bot.add_cog(Fun(bot))
