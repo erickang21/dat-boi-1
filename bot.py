@@ -28,9 +28,12 @@ async def on_ready():
 
 
 @bot.command()
-async def test(ctx):
-await ctx.send("Im online and working boi!")
-
+async def ping(ctx):
+    """Get the bot's Websocket latency."""
+    color = discord.Color(value=0x11f95e)
+    em = discord.Embed(color=color, title='Pong! Websocket Latency:')
+    em.description = f"{bot.latency * 1000:.4f} ms"
+    await ctx.send(embed=em)
 
 if not os.environ.get('TOKEN'):
     print("no token found REEEE!")
