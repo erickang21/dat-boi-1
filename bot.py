@@ -70,55 +70,7 @@ async def ping(ctx):
 @bot.command()
 async def invite(ctx):
     """lemme join dat c00l club""" 
-    await ctx.send("https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot")
-  
-   
-    @bot.command(hidden=True, name='eval')
-async def _eval(ctx, *, body: str):
-
-    if not dev_check(ctx.author.id):
-        return await ctx.send("Hey, I see you. Only developers can use eval. :laughing:")
-
-    env = {
-        'bot': bot,
-        'ctx': ctx,
-        'channel': ctx.channel,
-        'author': ctx.author,
-        'guild': ctx.guild,
-        'message': ctx.message,
-    }
-
-    env.update(globals())
-
-    body = cleanup_code(body)
-    stdout = io.StringIO()
-
-    to_compile = f'async def func():\n{textwrap.indent(body, "  ")}'
-
-    try:
-        exec(to_compile, env)
-    except Exception as e:
-        return await ctx.send(f'```py\n{e.__class__.__name__}: {e}\n```')
-
-    func = env['func']
-    try:
-        with redirect_stdout(stdout):
-            ret = await func()
-    except Exception as e:
-        value = stdout.getvalue()
-        await ctx.send(f'```py\n{value}{traceback.format_exc()}\n```')
-    else:
-        value = stdout.getvalue()
-        try:
-            await ctx.message.add_reaction('\u2705')
-        except:
-            pass
-
-        if ret is None:
-            if value:
-                await ctx.send(f'```py\n{value}\n```')
-        else:
-            await ctx.send(f'```py\n{value}{ret}\n```')     
+    await ctx.send("https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot") 
     
     
 if not os.environ.get('TOKEN'):
