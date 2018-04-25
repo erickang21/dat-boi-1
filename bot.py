@@ -17,6 +17,7 @@ import json
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('+'),description="A bot made my L3NNY\n\nHelp Commands",owner_id=411683912729755649)
 bot._last_result = None
 bot.load_extension("cogs.Owner")
+bot.load_extension("cogs.fun")
 
 
 @bot.event
