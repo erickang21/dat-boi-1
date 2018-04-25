@@ -101,7 +101,7 @@ async def say(ctx, *, message: commands.clean_content()):
     
 @bot.command()
 async def support(ctx):
-    """Join my support server"""
+    """join my lit support server""" 
     await ctx.send("https://discord.gg/FEPNu3A")      
     
     
