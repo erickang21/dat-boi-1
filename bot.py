@@ -61,8 +61,8 @@ async def ping(ctx):
     
 @bot.command()
 async def invite(ctx):
-    """Invite me to dat club of yours"""
 await ctx.send("https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot")    
+   
     
 if not os.environ.get('TOKEN'):
     print("no token found REEEE!")
