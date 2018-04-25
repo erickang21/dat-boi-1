@@ -26,7 +26,7 @@ class Fun:
         days, remainder2=divmod(remainder, 86400)
         hours, remainder3=divmod(remainder2, 3600)
         minutes, seconds=divmod(remainder3, 60)
-        embed=discord.Embed(color=0xffffff)
+        embed=discord.Embed(color=0x11f95e)
         embed.add_field(name=":gift::christmas_tree::santa:Time left until Christmas:santa::christmas_tree::gift:", 
             value=f"{weeks} weeks, {days} days, {hours} hours, {minutes} minutes, {seconds} seconds.")
         await ctx.send(embed=embed)
