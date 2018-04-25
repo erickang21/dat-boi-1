@@ -15,7 +15,7 @@ from contextlib import redirect_stdout
 from discord.ext import commands
 import json
 import roblox
-bot = commands.Bot(command_prefix=commands.when_mentioned_or('+'),description="A bot made by L3NNY\n\nHelp Commands",owner_id=411683912729755649)
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('+'),description="A bot made by L3NNY#4519\n\nHelp Commands",owner_id=411683912729755649)
 bot._last_result = None
 bot.load_extension("cogs.fun")
 
@@ -97,6 +97,12 @@ async def say(ctx, *, message: commands.clean_content()):
     '''I say what you want me to say. Oh boi...'''
     await ctx.message.delete()
     await ctx.send(message)
+    
+    
+@bot.command()
+async def support(ctx):
+    """Join my support server"""
+    await ctx.send("https://discord.gg/FEPNu3A")      
     
     
 @bot.command(name='eval')
