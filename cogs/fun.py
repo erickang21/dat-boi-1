@@ -31,18 +31,6 @@ class Fun:
             value=f"{weeks} weeks, {days} days, {hours} hours, {minutes} minutes, {seconds} seconds.")
         await ctx.send(embed=embed)
     
-    @commands.command()
-    @commands.has_permissions(administrator = True)
-    async def msg(self, ctx, user: discord.Member, *, msg: str):
-        """Message someone as me!"""
-        try:
-            await user.send(msg)
-            await ctx.message.delete()            
-            await ctx.send("The message has been sent! hehehe....")
-        except commands.MissingPermissions:
-            await ctx.send("rip. you dont have enough perms. xd")
-        except:
-            await ctx.send(":x: Format: _msg (user tag) (messgae)")
     
     @commands.command()
     async def expose(self, ctx, user: discord.Member = None):
