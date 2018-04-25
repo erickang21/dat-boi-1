@@ -30,6 +30,14 @@ async def on_ready():
         await bot.change_presence(activity=discord.Game(name=f"on discord."))
         await asyncio.sleep(10)
 
+        
+@bot.event
+async def on_message(message):
+    if message.author.bot:
+        return
+
+    await bot.process_commands(message)
+        
 
 def dev_check(id):
     with open('data/devs.json') as f:
@@ -71,6 +79,13 @@ async def ping(ctx):
 async def invite(ctx):
     """lemme join dat c00l club""" 
     await ctx.send("https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot") 
+
+    
+@bot.command()
+async def say(ctx, *, message: commands.clean_content()):
+    '''I say what you want me to say. Oh boi...'''
+    await ctx.message.delete()
+    await ctx.send(message)
     
     
 if not os.environ.get('TOKEN'):
