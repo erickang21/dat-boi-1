@@ -45,7 +45,7 @@ async def on_guild_join(guild):
 async def on_guild_remove(guild):
     lol = bot.get_channel(438526627824271362)
     em = discord.Embed(color=discord.Color(value=0xf44242))
-    em.title = " have left a server."
+    em.title = "I have left a server."
     em.description = f"Server: {guild}"
     await lol.send(embed=em)   
         
