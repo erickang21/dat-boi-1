@@ -96,9 +96,10 @@ async def invite(ctx):
 async def userinfo(ctx):
     """Get your userinfo"""
     color = discord.Color(value=0x11f95e)
-    em = discord.Embed(color=color, title='Your User Info')
-    em.description = f"**Name:** {user.name}"
+    em = discord.Embed(color=color, title='User Info')
+    em.description = f"Name: {user.name}"
     await ctx.send(embed=em)
+
     
     
 @bot.command()
