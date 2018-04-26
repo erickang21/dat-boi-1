@@ -19,7 +19,6 @@ import utils
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('+'),description="A bot made by L3NNY#4519\n\nHelp Commands",owner_id=411683912729755649)
 bot._last_result = None
 bot.load_extension("cogs.fun")
-bot.load_extension("cogs.roblox")
 
 def cleanup_code(content):
     # remove ```py\n```
@@ -92,6 +91,15 @@ async def invite(ctx):
     """lemme join dat c00l club""" 
     await ctx.send("https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot") 
 
+    
+@bot.command()
+async def userinfo(ctx):
+    """Get your userinfo"""
+    color = discord.Color(value=0x11f95e)
+    em = discord.Embed(color=color, title='Your User Info')
+    em.description = f"**Name:** {user.name}"
+    await ctx.send(embed=em)
+    
     
 @bot.command()
 async def say(ctx, *, message: commands.clean_content()):
