@@ -18,7 +18,7 @@ import roblox
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('+'),description="A bot made by L3NNY#4519\n\nHelp Commands",owner_id=411683912729755649)
 bot._last_result = None
 bot.load_extension("cogs.fun")
-
+bot.load_extension("cogs.roblox")
 
 def cleanup_code(content):
     # remove ```py\n```
