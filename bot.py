@@ -93,19 +93,10 @@ async def invite(ctx):
     await ctx.send("https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot") 
 
     
-@bot.command()
-async def userinfo(ctx):
-    """Get your userinfo"""
-    color = discord.Color(value=0x11f95e)
-    em = discord.Embed(color=color, title='User Info')
-    em.description = f"Name: {user.name}"
-    await ctx.send(embed=em)
-
-    
     
 @bot.command()
 async def say(ctx, *, message: commands.clean_content()):
-    '''I say what you want me to say. Oh boi...'''
+    '''Speak as me!'''
     await ctx.message.delete()
     await ctx.send(message)
     
