@@ -89,25 +89,6 @@ async def on_command(ctx):
     embed.add_field(name = "Author", value = ctx.message.author.name)
     embed.add_field(name = "Content", value = "```{}```".format(ctx.message.clean_content))
     await lol.send(embed = embed)  
-    
-        
-@bot.command(aliases=['botinfo'])
-async def info(ctx):
-		RAM = psutil.virtual_memory()
-		used = RAM.used >> 20
-		percent = RAM.percent
-		CPU  = psutil.cpu_percent()
-		embed = discord.Embed(title="Brotat info", color=passcolor, timestamp=ctx.message.created_at)
-		embed.set_author(name=ctx.message.author.name, icon_url=ctx.message.author.avatar_url)
-		embed.add_field(name="Creator", value="L3NNY#4519")
-		embed.add_field(name="Servers", value=len(bot.guilds))
-		embed.add_field(name="Memory", value=f'{percent}% ({used}MB)')
-		embed.add_field(name="CPU", value=f"{CPU}%")
-		embed.add_field(name='Operating system', value=platform.system())
-		embed.add_field(name="Bot Latency", value=f"{bot.ws.latency * 1000:.3f} ms")
-		embed.add_field(name="Upvote this bot!", value=f"[Click here](https://discordbots.org/bot/438487038032085025")
-		embed.set_footer(text='Powered by discord.py v.1.0.0a')
-		await ctx.send(embed=embed)        
         
         
 @bot.command()
@@ -124,16 +105,6 @@ async def invite(ctx):
     """lemme join dat c00l club""" 
     await ctx.send("https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot") 
 
-    
-@bot.command()
-async def uptime(ctx):
-        second = time.time() - startTime
-        minute, second = divmod(second, 60)
-        hour, minute = divmod(minute, 60)
-        day, hour = divmod(hour, 24)
-        week, day = divmod(day, 7)
-        await ctx.send("I've been online for %d weeks, %d days, %d hours, %d minutes, %d seconds" % (week, day, hour, minute, second))
-    
     
 @bot.command()
 async def say(ctx, *, message: commands.clean_content()):
