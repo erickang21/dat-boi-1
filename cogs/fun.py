@@ -32,7 +32,7 @@ class Fun:
         await ctx.send(embed=embed)
     
     
-     @commands.group(invoke_without_command=True)
+    @commands.group(invoke_without_command=True)
     @commands.guild_only()
     async def userinfo(self, ctx, *, member: discord.Member = None):
         """Shows info about a member."""
