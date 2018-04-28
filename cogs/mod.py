@@ -83,4 +83,4 @@ class Moderation:
             await ctx.send("00F! Couldn't unmute the user. I need the **Manage Channels** permission.")
 
 def setup(bot): 
-    bot.add_cog(mod(bot))
+    bot.add_cog(Moderation(bot))              
