@@ -93,6 +93,15 @@ async def invite(ctx):
     await ctx.send("https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot") 
 
     
+@bot.command()
+async def uptime(ctx):
+        second = time.time() - startTime
+        minute, second = divmod(second, 60)
+        hour, minute = divmod(minute, 60)
+        day, hour = divmod(hour, 24)
+        week, day = divmod(day, 7)
+        await ctx.send("I've been online for %d weeks, %d days, %d hours, %d minutes, %d seconds" % (week, day, hour, minute, second))
+    
     
 @bot.command()
 async def say(ctx, *, message: commands.clean_content()):
