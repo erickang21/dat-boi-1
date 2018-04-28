@@ -32,6 +32,39 @@ class Fun:
         await ctx.send(embed=embed)
     
     
+     @commands.group(invoke_without_command=True)
+    @commands.guild_only()
+    async def userinfo(self, ctx, *, member: discord.Member = None):
+        """Shows info about a member."""
+
+        if member is None:
+            member = ctx.author
+
+        e = discord.Embed()
+        roles = [role.name.replace('@', '@\u200b') for role in member.roles]
+        shared = sum(1 for m in self.bot.get_all_members() if m.id == member.id)
+        voice = member.voice
+        if voice is not None:
+            vc = voice.channel
+            other_people = len(vc.members) - 1
+            voice = f'{vc.name} with {other_people} others' if other_people else f'{vc.name} by themselves'
+        else:
+            voice = 'Not connected.'
+
+        e.set_author(name=str(member))
+        e.add_field(name='ID', value=member.id)
+        e.add_field(name='Servers', value=f'{shared} shared')
+        e.add_field(name='Created', value=member.created_at)
+        e.add_field(name='Voice', value=voice)
+        e.add_field(name='Roles', value=', '.join(roles) if len(roles) < 10 else f'{len(roles)} roles')
+        e.colour = member.colour
+
+        if member.avatar:
+            e.set_thumbnail(url=member.avatar_url)
+
+        await ctx.send(embed=e)
+    
+    
     @commands.command()
     async def expose(self, ctx, user: discord.Member = None):
         '''Expose someone!'''
