@@ -32,8 +32,6 @@ class Fun:
         await ctx.send(embed=embed)
     
     
-
-    
     @commands.command()
     async def expose(self, ctx, user: discord.Member = None):
         '''Expose someone!'''
@@ -45,7 +43,6 @@ class Fun:
         except commands.errors.BadArgument:
             return await ctx.send(f":no_entry_sign: **{user}**, is not a valid username or mention")
             
-            
-            
+                        
 def setup(bot):
     bot.add_cog(Fun(bot))
