@@ -1,4 +1,3 @@
-
 import discord
 import os
 import io
@@ -20,6 +19,7 @@ bot.remove_command("help")
 bot._last_result = None
 bot.load_extension("cogs.fun")
 bot.load_extension("cogs.help")
+bot.load_extension("cogs.mod")
 
 def cleanup_code(content):
     # remove ```py\n```
