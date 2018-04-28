@@ -91,31 +91,24 @@ async def on_command(ctx):
     await lol.send(embed = embed)  
     
         
+@bot.command(aliases=['botinfo'])
+async def info(ctx):
+		RAM = psutil.virtual_memory()
+		used = RAM.used >> 20
+		percent = RAM.percent
+		CPU  = psutil.cpu_percent()
+		embed = discord.Embed(title="Brotat info", color=passcolor, timestamp=ctx.message.created_at)
+		embed.set_author(name=ctx.message.author.name, icon_url=ctx.message.author.avatar_url)
+		embed.add_field(name="Creator", value="L3NNY#4519")
+		embed.add_field(name="Servers", value=len(bot.guilds))
+		embed.add_field(name="Memory", value=f'{percent}% ({used}MB)')
+		embed.add_field(name="CPU", value=f"{CPU}%")
+		embed.add_field(name='Operating system', value=platform.system())
+		embed.add_field(name="Bot Latency", value=f"{bot.ws.latency * 1000:.3f} ms")
+		embed.add_field(name="Upvote this bot!", value=f"[Click here](https://discordbots.org/bot/438487038032085025")
+		embed.set_footer(text='Powered by discord.py v.1.0.0a')
+		await ctx.send(embed=embed)        
         
-@bot.command(name='presence', hidden=True)
-@commands.is_owner()
-async def _presence(ctx, type=None, *, game=None):
-    '''Change the bot's presence'''
-    if type is None:
-        await ctx.send(f'Usage: `{ctx.prefix}presence [game/stream/watch/listen] [message]`')
-    else:
-        if type.lower() == 'stream':
-            await bot.change_presence(game=discord.Game(name=game, type=1, url='https://www.twitch.tv/batshal'), status='online')
-            await ctx.send(f'Set presence to. `Streaming {game}`')
-        elif type.lower() == 'game':
-            await bot.change_presence(game=discord.Game(name=game))
-            await ctx.send(f'Set presence to `Playing {game}`')
-        elif type.lower() == 'watch':
-            await bot.change_presence(game=discord.Game(name=game, type=3), afk=True)
-            await ctx.send(f'Set presence to `Watching {game}`')
-        elif type.lower() == 'listen':
-            await bot.change_presence(game=discord.Game(name=game, type=2), afk=True)
-            await ctx.send(f'Set presence to `Listening to {game}`')
-        elif type.lower() == 'clear':
-            await bot.change_presence(game=None)
-            await ctx.send('Presence Cleared :ok_hand:')
-        else:
-            await ctx.send('Usage: `%presence [game/stream/watch/listen] [message]`')        
         
 @bot.command()
 async def ping(ctx):
