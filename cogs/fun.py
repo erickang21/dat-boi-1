@@ -46,7 +46,6 @@ class Fun:
             
     @commands.command()
     async def gayrate(self, ctx, user: discord.Member = None):
-        '''See how gay you are.'''
         if user is None:
             return await ctx.send(":no_entry_sign: **You need to mention a user.**")
         try:
@@ -54,6 +53,7 @@ class Fun:
             await ctx.send(f"{user.mention} {random.choice(roasts)}")
         except commands.errors.BadArgument:
             return await ctx.send(f":no_entry_sign: **{user}**, is not a valid username or mention")
+            
             
             
 def setup(bot):
