@@ -4,7 +4,6 @@ from discord.ext import commands
 import time
 import datetime
 import requests
-import ftfy
 import traceback
 import openweathermapy.core as weather
 import platform
