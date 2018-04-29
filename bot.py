@@ -29,18 +29,17 @@ def cleanup_code(content):
 
     return content.strip('` \n')
 
-
 @bot.event
 async def on_ready():
     print('Bot is online, and ready to ROLL!')
     while True:
-        await bot.change_presence(activity=discord.Game(name=f"+help"))
+        await bot.change_presence(activity=discord.Game(name=f"+help"), status='dnd')
         await asyncio.sleep(10)
-        await bot.change_presence(activity=discord.Game(name=f"V 0.0.1"))
+        await bot.change_presence(activity=discord.Game(name=f"V 0.0.1"), status='dnd')
         await asyncio.sleep(10)
-        await bot.change_presence(activity=discord.Game(name=f"with {len(bot.guilds)} servers boi!"))
+        await bot.change_presence(activity=discord.Game(name=f"with {len(bot.guilds)} servers boi!"), status='dnd')
         await asyncio.sleep(10)
-        await bot.change_presence(activity=discord.Game(name=f"on discord."))
+        await bot.change_presence(activity=discord.Game(name=f"on discord."), status='dnd')
         await asyncio.sleep(10)
 
         
