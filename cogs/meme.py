@@ -8,7 +8,6 @@ import aiohttp
 import discord
 from discord.ext import commands
 
-from discordbot.main import DiscordBot
 from discordbot.utils import util
 
 
