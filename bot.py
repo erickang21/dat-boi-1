@@ -104,6 +104,12 @@ async def ping(ctx):
 async def invite(ctx):
     """lemme join dat c00l club""" 
     await ctx.send("https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot") 
+    
+    
+@bot.command()
+async def urmomgay(ctx):
+    """Get a gif""" 
+    await ctx.send("https://tenor.com/view/ur-mom-gay-lol-dragon-ball-super-goku-gif-11190676")     
 
     
 @bot.command()
