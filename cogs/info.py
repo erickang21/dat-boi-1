@@ -1,6 +1,5 @@
 import discord
 import sys
-import psutil
 import platform
 import os
 import io
