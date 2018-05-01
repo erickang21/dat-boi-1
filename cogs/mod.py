@@ -58,25 +58,30 @@ class mod:
             
             
     @commands.command()
-    @commands.has_permissions(ban_members=True)
-    async def mute(self, ctx, user: discord.Member):
-        '''Mutes a member'''
+    @commands.has_permissions(mute_members=True)
+    async def mute(self, ctx, user: discord.Member = None):
+        '''Mutes a user'''
+        if user is None:
+            return await ctx.send("Please tag that annoying user to mute them!")
+
         try:
             await ctx.channel.set_permissions(user, send_messages=False)
-            await ctx.channel.send(f"Lol. {user.mention} just got muted. Time to shut up.")
+            await ctx.send(f"Lol. {user.mention} has been muted.")
         except discord.Forbidden:
-            await ctx.send("00F! I need **Mute Members** or **Manage Members** permmision.")
-
+            return await ctx.send("00F! I don't have **Manage Channel** permmition.")
 
     @commands.command()
-    @commands.has_permissions(ban_members=True)
-    async def unmute(self, ctx, user: discord.Member):
-        '''Unmutes a member'''
+    @commands.has_permissions(mute_members=True)
+    async def unmute(self, ctx, user: discord.Member = None):
+        '''Un-mutes a user'''
+        if user is None:
+            return await ctx.send("Please tag a user to unmute them!")
+
         try:
             await ctx.channel.set_permissions(user, send_messages=True)
-            await ctx.channel.send(f"{user.mention} just got unmuted. now... SPEAK!")
+            await ctx.send(f"{user.mention} is now un-muted. Hope they learned their lesson.")
         except discord.Forbidden:
-            await ctx.send("I could not unmute the user. Make sure I have the manage channels permission.")   
+            await ctx.send("00F! I need the **Manage Channels** permission.")  
             
             
 def setup(bot): 
