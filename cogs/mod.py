@@ -54,7 +54,29 @@ class mod:
         except discord.Forbidden:
             await ctx.send("00F! I need the **Ban Members** permission.")
         except discord.ext.commands.MissingPermissions:
-            await ctx.send("Can't ban people without permissions.")         
+            await ctx.send("Can't ban people without permissions.")  
+            
+            
+    @commands.command()
+    @commands.has_permissions(ban_members=True)
+    async def mute(self, ctx, user: discord.Member):
+        '''Mutes a member'''
+        try:
+            await ctx.channel.set_permissions(user, send_messages=False)
+            await ctx.channel.send(f"Lol. {user.mention} just got muted. Time to shut up.")
+        except discord.Forbidden:
+            await ctx.send("00F! I need **Mute Members** or **Manage Members** permmision.")
+
+
+    @commands.command()
+    @commands.has_permissions(ban_members=True)
+    async def unmute(self, ctx, user: discord.Member):
+        '''Unmutes a member'''
+        try:
+            await ctx.channel.set_permissions(user, send_messages=True)
+            await ctx.channel.send(f"{user.mention} just got unmuted. now... SPEAK!")
+        except discord.Forbidden:
+            await ctx.send("I could not unmute the user. Make sure I have the manage channels permission.")   
             
             
 def setup(bot): 
