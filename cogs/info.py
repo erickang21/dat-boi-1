@@ -3,7 +3,6 @@ import sys
 import os
 import io
 import asyncio
-import psutil
 import time
 import textwrap
 from discord.ext import commands
