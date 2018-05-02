@@ -80,6 +80,16 @@ async def on_guild_remove(guild):
     await lol.send(embed=em)   
 
     
+@bot.command()
+async def uptime(ctx):
+        second = time.time() - startTime
+        minute, second = divmod(second, 60)
+        hour, minute = divmod(minute, 60)
+        day, hour = divmod(hour, 24)
+        week, day = divmod(day, 7)
+        await ctx.send("I've been online for %d weeks, %d days, %d hours, %d minutes, %d seconds" % (week, day, hour, minute, second))
+
+    
 @bot.event
 async def on_command(ctx):
     lol = bot.get_channel(439860826254475265)
