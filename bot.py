@@ -21,7 +21,7 @@ bot.load_extension("cogs.fun")
 bot.load_extension("cogs.help")
 bot.load_extension("cogs.mod")
 bot.load_extension("cogs.math")
-bot.load_extension("cogs.info")
+
 
 def cleanup_code(content):
     # remove ```py\n```
