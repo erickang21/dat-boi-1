@@ -59,6 +59,15 @@ def dev_check(id):
         return True
     return False
         
+    
+@bot.command(hidden=True)
+@utils.developer()
+async def shutdown(ctx):
+    '''Shutdown the bot'''
+    await ctx.send("Shutting down....")
+    await bot.logout()
+    
+    
         
 @bot.event
 async def on_guild_join(guild):
