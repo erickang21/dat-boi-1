@@ -119,9 +119,9 @@ async def invite(ctx):
     
     
 @bot.command()
-async def urmomgay(ctx):
+async def nou(ctx):
     """Get a gif""" 
-    await ctx.send("https://tenor.com/view/ur-mom-gay-lol-dragon-ball-super-goku-gif-11190676")     
+    await ctx.send("https://bit.ly/2rdOzJy")     
 
     
 @bot.command()
