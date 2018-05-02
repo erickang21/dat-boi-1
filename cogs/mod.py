@@ -33,6 +33,13 @@ class mod:
             
             
     @commands.command()
+    @commands.is_owner()
+    async def shutdown(ctx):
+        await ctx.send("Shutting down...")
+        await self.bot.logout()
+            
+            
+    @commands.command()
     @commands.has_permissions(kick_members = True)
     async def kick(self, ctx, user: discord.Member):
         """Kicks a member out of your server."""
