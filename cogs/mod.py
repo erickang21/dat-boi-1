@@ -30,18 +30,6 @@ class mod:
             await ctx.send("I don't have **Manage Messages** permission.")
         except commands.errors.MissingPermissions:
             await ctx.send("Cant delete messages without perms.")
-
-            
-    @commands.command()
-    async def shutdown(self, ctx):
-        """Shuts down the bot"""
-        if not self.dev_check(ctx.author.id):
-            return await ctx.send("Only the bot owner can do this. Lol :tenor:")
-        msg = await ctx.send("Shutting down...")
-        await asyncio.sleep(1)
-        await msg.edit(content="Going to sleep!")
-        await self.bot.logout()
-
             
             
     @commands.command()
