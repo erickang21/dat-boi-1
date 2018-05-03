@@ -68,7 +68,7 @@ async def on_guild_join(guild):
     em.title = "I have joined new server!"
     em.description = f"Server: {guild}"
     await lol.send(embed=em)
-    await ctx.send(f"Hello my peeps. Im a discord created my L3NNY#4519 try me out by doing ``+help``")
+    await ctx.send(f"Hello my peeps. Im a discord bot created by L3NNY#4519. Try me out by doing ``+help``!")
 
       
 @bot.event
@@ -102,13 +102,13 @@ async def ping(ctx):
 @bot.command()
 async def invite(ctx):
     """lemme join dat c00l club""" 
-    await ctx.send("https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot") 
+    await ctx.send("lemme join that c00l kidz club: https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot") 
     
     
 @bot.command()
 async def nou(ctx):
     """Get a gif""" 
-    await ctx.send("https://bit.ly/2rdOzJy")     
+    await ctx.send("NO U https://bit.ly/2rdOzJy")     
 
     
 @bot.command()
@@ -121,13 +121,13 @@ async def say(ctx, *, message: commands.clean_content()):
 @bot.command()
 async def support(ctx):
     """join my lit support server""" 
-    await ctx.send("https://discord.gg/FEPNu3A")      
+    await ctx.send("time to join! https://discord.gg/FEPNu3A")      
     
     
 @bot.command()
 @commands.cooldown(1, 3, commands.BucketType.user)
 async def textmojify(ctx, *, msg):
-        """Turn your test into emojis"""
+        """Turn your text into emojis"""
         try:
             await ctx.message.delete()
         except discord.Forbidden:
