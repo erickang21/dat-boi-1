@@ -126,6 +126,11 @@ async def support(ctx):
     
     
 @bot.command()
+async def blame(ctx, *, text):
+    await ctx.send(file=discord.File(await bot.api.blame(text), "blame.png"))
+    
+    
+@bot.command()
 @commands.cooldown(1, 3, commands.BucketType.user)
 async def textmojify(ctx, *, msg):
         """Turn your text into emojis"""
