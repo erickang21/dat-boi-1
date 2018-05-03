@@ -21,6 +21,7 @@ bot.load_extension("cogs.fun")
 bot.load_extension("cogs.help")
 bot.load_extension("cogs.mod")
 bot.load_extension("cogs.math")
+bot.load_extension("cogs.info")
 
 
 
@@ -88,19 +89,6 @@ async def uptime(ctx):
         day, hour = divmod(hour, 24)
         week, day = divmod(day, 7)
         await ctx.send("I've been online for %d weeks, %d days, %d hours, %d minutes, %d seconds" % (week, day, hour, minute, second))
-
-    
-@bot.event
-async def on_command(ctx):
-    lol = bot.get_channel(439860826254475265)
-    colour = ''.join([random.choice('0123456789ABCDEF') for x in range(6)])
-    colour = int(colour, 16)
-    embed = discord.Embed(title = "Command Executed!", colour = discord.Colour(value = colour), timestamp = datetime.datetime.utcnow())
-    embed.add_field(name = "Server", value = ctx.guild, inline = True)
-    embed.add_field(name = "Channel", value = ctx.message.channel.name, inline = True)
-    embed.add_field(name = "Author", value = ctx.message.author.name)
-    embed.add_field(name = "Content", value = "```{}```".format(ctx.message.clean_content))
-    await lol.send(embed = embed)  
         
         
 @bot.command()
