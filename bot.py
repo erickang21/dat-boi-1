@@ -62,6 +62,8 @@ def dev_check(id):
     return False
         
              
+bot.api = idioticapi.Client((os.environ.get("IDIOTICAPI")), dev=True)
+        
 @bot.event
 async def on_guild_join(guild):
     lol = bot.get_channel(438526627824271362)
