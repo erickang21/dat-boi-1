@@ -29,7 +29,7 @@ class mod:
         except discord.Forbidden:
             await ctx.send("I don't have **Manage Messages** permission.")
         except commands.errors.MissingPermissions:
-            await ctx.send(":YouTried: Cant delete messages without perms.")
+            await ctx.send(" Cant delete messages without perms.")
             
             
     @commands.command()
@@ -42,7 +42,7 @@ class mod:
         except discord.Forbidden:
             await ctx.send("00F! I need the **Kick Members** permission.")
         except discord.ext.commands.MissingPermissions:
-            await ctx.send(":YouTried: Can't kick people without permissions.")
+            await ctx.send("Can't kick people without permissions.")
 
 
     @commands.command()
@@ -55,13 +55,13 @@ class mod:
         except discord.Forbidden:
             await ctx.send("00F! I need the **Ban Members** permission.")
         except discord.ext.commands.MissingPermissions:
-            await ctx.send(":YouTried: Can't ban people without permissions.")  
+            await ctx.send("Can't ban people without permissions.")  
             
             
     @commands.command()
     @commands.has_permissions(mute_members=True)
     async def mute(self, ctx, user: discord.Member = None):
-        '''Mutes a user'''
+        """Mutes a user"""
         if user is None:
             return await ctx.send("Please tag that annoying user to mute them!")
 
@@ -74,7 +74,7 @@ class mod:
     @commands.command()
     @commands.has_permissions(mute_members=True)
     async def unmute(self, ctx, user: discord.Member = None):
-        '''Un-mutes a user'''
+        """Un-mutes a user"""
         if user is None:
             return await ctx.send("Please tag a user to unmute them!")
 
