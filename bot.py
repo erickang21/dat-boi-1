@@ -81,6 +81,7 @@ async def on_guild_remove(guild):
     em = discord.Embed(color=discord.Color(value=0xf44242))
     em.title = "I have left a server."
     em.description = f"Server: {guild}"
+     em.set_footer(text=f"ID: {guild.id}")
     await lol.send(embed=em)   
 
     
