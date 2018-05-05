@@ -130,7 +130,7 @@ class info():
 		await ctx.send(embed=em)
 		
 		
-        @commands.command(aliases=['info', 'botinfo']
+        @commands.command(aliases=['info', 'botinfo'])
         async def stats(self, ctx):
             """Stats for me"""
             total_members = 0
