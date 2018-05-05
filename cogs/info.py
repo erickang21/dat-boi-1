@@ -2,6 +2,7 @@ import discord
 import sys
 import os
 import io
+import psutil
 import asyncio
 import time
 import textwrap
