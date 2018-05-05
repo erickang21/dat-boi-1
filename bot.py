@@ -70,6 +70,7 @@ async def on_guild_join(guild):
     em = discord.Embed(color=discord.Color(value=0x11f95e))
     em.title = "I have joined new server!"
     em.description = f"Server: {guild}"
+    em.set_footer(text=f"ID: {guild.id}")
     await lol.send(embed=em)
     await ctx.send(f"Hello my peeps. Im a discord bot created by L3NNY#4519. Try me out by doing ``+help``!")
 
