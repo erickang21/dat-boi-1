@@ -129,8 +129,6 @@ class info():
 		await ctx.send(embed=em)
 		
 		
-
-		
 		
 		
 def setup(bot):
