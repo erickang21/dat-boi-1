@@ -1,4 +1,10 @@
 import discord
+import sys
+import os
+import io
+import asyncio
+import time
+import textwrap
 from discord.ext import commands
 
 class info():
@@ -7,7 +13,6 @@ class info():
 
 
 
-### Server Information Command ###
 	@commands.guild_only()
 	@commands.cooldown(1, 10, commands.BucketType.user)
 	@commands.command(aliases=['si'])
@@ -54,7 +59,7 @@ class info():
 
 		await ctx.send(embed = embed)
 		
-### User information Command ###
+		
 	@commands.guild_only()
 	@commands.cooldown(1, 10, commands.BucketType.user)
 	@commands.group(invoke_without_command = True, aliases =  ['ui'])
@@ -122,6 +127,27 @@ class info():
 		e.add_field(name = 'Roles', value = ' **|** '.join(roles) if len(roles) < 15 else f'{len(roles)} roles')
 
 		await ctx.send(embed=em)
+		
+		
+    @commands.command(aliases=['info', 'botinfo'])
+    async def stats(self, ctx):
+        """Stats for me"""
+        total_members = 0
+        for guild in self.bot.guilds:
+            total_members = len(guild.members) + total_members
+        em = discord.Embed(color=discord.Color(value=0x00ff00), title='Bot Info')
+        em.description = "My Infomation"
+        em.add_field(name='Creator', value='L3NNY#4519')
+        em.add_field(name='Developers', value='**1:** dat banana boi#1982\n**2:** CyRIC#0847')
+        em.add_field(name='Servers', value=f'{len(self.bot.guilds)}')
+        em.add_field(name='Total Members', value=total_members)
+        em.add_field(name='Version', value='0.0.2')
+        em.add_field(name='Start Date', value='4/24/2018')
+        em.add_field(name='Coding Language', value='Python')
+        em.add_field(name='Coding Libary', value='discord.py')
+        await ctx.send(embed=em)
+		
+		
 		
 def setup(bot):
     bot.add_cog(info(bot))
