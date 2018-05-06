@@ -7,7 +7,7 @@ import json
 from discord.ext import commands
 
 
-class mod:
+class Mod:
     def __init__(self, bot):
         self.bot = bot
         
@@ -59,31 +59,34 @@ class mod:
             
             
     @commands.command()
-    @commands.has_permissions(mute_members=True)
+    @commands.has_permissions(kick_members=True)
     async def mute(self, ctx, user: discord.Member = None):
-        """Mutes a user"""
+        """Mute a member"""
         if user is None:
-            return await ctx.send("Please tag that annoying user to mute them!")
-
+            return await ctx.send("Please tag that annoying member to mute them!")
         try:
             await ctx.channel.set_permissions(user, send_messages=False)
-            await ctx.send(f"Lol. {user.mention} has been muted.")
+            return await ctx.send(f"Lol {user.mention} just got muted. ")
+        except commands.errors.MissingPermissions:
+            return await ctx.send(":YouTried: You dont have enought permissions.")
         except discord.Forbidden:
-            return await ctx.send("00F! I don't have **Manage Channel** permmition.")
+            return await ctx.send("00F! I need the **Manage Channel** permission.")
 
     @commands.command()
-    @commands.has_permissions(mute_members=True)
+    @commands.has_permissions(kick_members=True)
     async def unmute(self, ctx, user: discord.Member = None):
-        """Un-mutes a user"""
+        """Unmute a member"""
         if user is None:
-            return await ctx.send("Please tag a user to unmute them!")
-
+            return await ctx.send("Please tag the user in order to unmute them")
         try:
             await ctx.channel.set_permissions(user, send_messages=True)
-            await ctx.send(f"{user.mention} is now un-muted. Hope they learned their lesson.")
+            return await ctx.send(f"Times up, {user.mention}. You just got unmuted.")
+        except commands.errors.MissingPermissions:
+            return await ctx.send(":YouTried: Cant unmute people with out perms")
         except discord.Forbidden:
-            await ctx.send("00F! I need the **Manage Channels** permission.")  
+            return await ctx.send("00F! I need the **Manage Channel** permission.")
+
             
             
 def setup(bot): 
-    bot.add_cog(mod(bot))              
+    bot.add_cog(Mod(bot))              
