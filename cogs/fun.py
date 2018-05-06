@@ -7,6 +7,7 @@ import asyncio
 import aiohttp
 import random
 import json
+import idioticapi
 from discord.ext import commands
 
 
@@ -48,7 +49,16 @@ class Fun:
         em.add_field(name='Coding Language', value='Python')
         em.add_field(name='Coding Libary', value='discord.py')
         await ctx.send(embed=em)
-            
+        
+        
+    @commands.command()
+    async def blame(self, ctx, *, text=None):
+        await ctx.trigger_typing()
+        try:
+            await ctx.send(file=discord.File(await self.client.blame(str(text)), "blame.png"))
+        except Exception as e:
+            await ctx.send(f"An error occured with IdioticAPI. \nMore details: \n{e}")    
                         
+                
 def setup(bot):
     bot.add_cog(Fun(bot))
