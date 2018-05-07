@@ -114,6 +114,12 @@ async def invite(ctx):
     
     
 @bot.command()
+async def servers(ctx):
+    """get how many c00l clubs im in""" 
+    await ctx.send("I'm in {len(bot.guilds)} c00l clUbs")
+
+    
+@bot.command()
 async def nou(ctx):
     """Get a gif""" 
     await ctx.send("NO U https://bit.ly/2rdOzJy")     
