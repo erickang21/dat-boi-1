@@ -15,7 +15,7 @@ from contextlib import redirect_stdout
 from discord.ext import commands
 import json
 import idioticapi
-bot = commands.Bot(command_prefix=commands.when_mentioned_or('+'),description="A bot made by L3NNY#4519\n\nHelp Commands",owner_id=411683912729755649)
+bot = commands.Bot(command_prefix=commands.when_mentioned_or('+'), description="A bot made by L3NNY#4519\n\nHelp Commands", owner_id=411683912729755649)
 bot.remove_command("help")
 bot._last_result = None
 bot.load_extension("cogs.fun")
@@ -37,13 +37,13 @@ async def on_ready():
     print('Bot is online, and ready to ROLL!')
     while True:
         await bot.change_presence(activity=discord.Game(name=f"+help"), status='dnd')
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
         await bot.change_presence(activity=discord.Game(name=f"V 0.0.2"), status='dnd')
         await asyncio.sleep(10)
         await bot.change_presence(activity=discord.Game(name=f"with {len(bot.guilds)} servers boi!"), status='dnd')
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
         await bot.change_presence(activity=discord.Game(name=f"on discord."), status='dnd')
-        await asyncio.sleep(10)
+        await asyncio.sleep(15)
 
         
 @bot.event
