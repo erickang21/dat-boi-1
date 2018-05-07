@@ -22,7 +22,7 @@ bot.load_extension("cogs.fun")
 bot.load_extension("cogs.help")
 bot.load_extension("cogs.Mod")
 bot.load_extension("cogs.math")
-bot.load_extension("cogs.info")
+bot.load_extension("cogs.Info")
 
 
 def cleanup_code(content):
