@@ -18,10 +18,10 @@ import idioticapi
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('+'), description="A bot made by L3NNY#4519\n\nHelp Commands", owner_id=411683912729755649)
 bot.remove_command("help")
 bot._last_result = None
-bot.load_extension("cogs.fun")
+bot.load_extension("cogs.Fun")
 bot.load_extension("cogs.help")
 bot.load_extension("cogs.Mod")
-bot.load_extension("cogs.math")
+bot.load_extension("cogs.Math")
 bot.load_extension("cogs.Info")
 
 
