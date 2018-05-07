@@ -141,7 +141,7 @@ async def textmojify(ctx, *, msg):
         except discord.Forbidden:
             pass
 
-        if msg != None:
+        if msg:
             out = msg.lower()
             text = out.replace(' ', '    ').replace('10', '\u200B:keycap_ten:')\
                       .replace('ab', '\u200B🆎').replace('cl', '\u200B🆑')\
