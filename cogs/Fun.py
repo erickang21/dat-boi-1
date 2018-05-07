@@ -46,8 +46,7 @@ class Fun:
         em.add_field(name='Total Members', value=total_members)
         em.add_field(name='Version', value='0.0.2')
         em.add_field(name='Start Date', value='4/24/2018')
-        em.add_field(name='Coding Language', value='Python')
-        em.add_field(name='Coding Libary', value='discord.py')
+        em.add_field(name='Coding Language', value='Python, discord.py')
         await ctx.send(embed=em)
         
         
