@@ -101,18 +101,6 @@ async def ping(ctx):
 async def invite(ctx):
     """lemme join dat c00l club""" 
     await ctx.send("lemme join that c00l kidz club: https://discordapp.com/api/oauth2/authorize?client_id=438487038032085025&permissions=8&scope=bot") 
-    
-    
-@bot.command()
-async def servers(ctx):
-    """get how many c00l clubs im in""" 
-    await ctx.send("I'm in {len(bot.guilds)} c00l clUbs")
-
-    
-@bot.command()
-async def nou(ctx):
-    """Get a gif""" 
-    await ctx.send("NO U https://bit.ly/2rdOzJy")     
 
     
 @bot.command()
