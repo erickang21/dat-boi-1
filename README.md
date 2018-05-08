@@ -1,2 +1,2 @@
 # dat-boi
-A discord bot that can take care of your server.
+A discord bot made in python, able to take care of your server.
