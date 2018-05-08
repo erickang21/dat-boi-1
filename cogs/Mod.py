@@ -12,6 +12,7 @@ class Mod:
         self.bot = bot
         
         
+        
     @commands.command()
     @commands.has_permissions(manage_messages = True)
     async def purge(self, ctx, num: int):
