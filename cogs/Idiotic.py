@@ -43,8 +43,6 @@ class Idiotic:
         if user is None:
             user = ctx.author
         await ctx.send(file=discord.File(await self.api.triggered(self.format_avatar(user.avatar_url)), "triggered.gif"))
-    except Exception as e:
-        await ctx.send(f"An error occured with the API. \nMore details: \n{e}")
 
         
 def setup(bot):
