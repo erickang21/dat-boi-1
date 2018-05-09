@@ -38,11 +38,16 @@ class Idiotic:
 
             
     @commands.command()
-    async def triggered(self, ctx, user: discord.Member=None):
-        '''Somebody is triggered'''
+    async def triggered(self, ctx, user: discord.Member = None):
+        """Somebody is triggered."""
         if user is None:
             user = ctx.author
-        await ctx.send(file=discord.File(await self.api.triggered(self.format_avatar(user.avatar_url)), "triggered.gif"))
+        try:
+            await ctx.trigger_typing()
+            av = self.format_avatar(user.avatar_url)
+            await ctx.send(file=discord.File(await self.client.triggered(av), "triggered.gif"))
+        except Exception as e:
+            await ctx.send(f"An error occured with the API \n{e}")
            
             
 def setup(bot):
