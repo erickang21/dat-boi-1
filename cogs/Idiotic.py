@@ -19,6 +19,7 @@ class Idiotic:
 
     @commands.command()
     async def blame(self, ctx, *, text=None):
+        """Blame someone"""
         try:
             await ctx.send(file=discord.File(await self.client.blame(str(text)), "blame.png"))
         except Exception as e:
@@ -27,6 +28,7 @@ class Idiotic:
             
     @commands.command()
     async def gay(self, ctx, user: discord.Member = None):
+        """Someone is gay"""
         await ctx.trigger_typing()
         user = user if user is not None else ctx.author
         try:
@@ -34,6 +36,14 @@ class Idiotic:
         except Exception as e:
             await ctx.send(f"An error occured with the API. \nMore details: \n{e}")
 
+            
+    @commands.command()
+    async def triggered(self, ctx, user: discord.Member=None):
+        """Somebody is triggered"""
+        if user is None:
+            user = ctx.author
+        await ctx.send(file=discord.File(await self.api.triggered(self.format_avatar(user.avatar_url)), "triggered.gif"))
 
+        
 def setup(bot):
     bot.add_cog(Idiotic(bot))
