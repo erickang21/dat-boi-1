@@ -22,8 +22,17 @@ class Idiotic:
         try:
             await ctx.send(file=discord.File(await self.client.blame(str(text)), "blame.png"))
         except Exception as e:
-            await ctx.send(f"An error occured. \nMore details: \n{e}")
-
+            await ctx.send(f"An error occured with the API. \nMore details: \n{e}")
+            
+            
+    @commands.command()
+    async def gay(self, ctx, user: discord.Member = None):
+        await ctx.trigger_typing()
+        user = user if user is not None else ctx.author
+        try:
+            await ctx.send(file=discord.File(await self.client.rainbow(user.avatar_url), "gay.png"))
+        except Exception as e:
+            await ctx.send(f"An error occured with the API. \nMore details: \n{e}")
 
 
 def setup(bot):
