@@ -54,9 +54,30 @@ class Mod:
             await user.ban()
             await ctx.channel.send(f"The administrator is getting the ban hammer out of the case. He swings it at {user.mention}. Ouch! {user.mention} has been banned.")
         except discord.Forbidden:
-            await ctx.send("00F! I need the **Ban Members** permission.")
+            await ctx.send("00F! I need the **Ban Members or Manage Members** permission.")
         except discord.ext.commands.MissingPermissions:
             await ctx.send("Can't ban people without permissions.")  
+            
+            
+    @commands.has_permissions(ban_members=True)    
+    @commands.command(aliases=['hban'], pass_context=True)     
+    async def hackban(self, ctx, user_id: int):
+        """Ban a user outside of your server."""
+        author = ctx.message.author
+        guild = author.guild
+
+        user = guild.get_member(user_id)
+        if user is not None:
+            return await ctx.invoke(self.ban, user=user)
+
+        try:
+            await self.bot.http.ban(user_id, guild.id, 0)
+            await ctx.message.edit(content=self.bot.bot_prefix + 'Banned user: %s' % user_id)
+        except discord.NotFound:
+            await ctx.message.edit(content=self.bot.bot_prefix + 'Could not find user. '
+                               'Invalid ID was given.')
+        except discord.errors.Forbidden:
+            await ctx.message.edit(content=self.bot.bot_prefix + '00F! I need *Ban Members or Manage Memmbers**')
             
             
     @commands.command()
