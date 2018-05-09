@@ -129,7 +129,18 @@ class Info():
 		await ctx.send(embed=em)
 		
 		
-		
+  @commands.command(pass_context=True)
+  async def avatar(self, ctx, user: discord.User):
+    await asyncio.sleep(.5)
+#    return await self.bot.say("{}".format(user.name)+"'s avatar is {}".format(user.avatar_url))
+    avatar_em = user.avatar_url 
+    avatar_return = embeds.Embed(title=user.name)
+    avatar_return.set_image(url=avatar_em)
+
+#    avatar_return.add_field(name='{}'.format(user.name), value=avatar_return.set_image(url=avatar_em), inline=False)
+    
+    return await self.bot.say(embed=avatar_return)
+
 		
 def setup(bot):
     bot.add_cog(Info(bot))
