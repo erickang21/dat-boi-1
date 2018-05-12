@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import aiohttp
-
+import random
 
 class Nsfw:
     '''
@@ -16,7 +16,7 @@ class Nsfw:
     async def boobs(self, ctx):
         '''Get boobs off the internet'''
         if not ctx.channel.is_nsfw():
-          await ctx.send("Tried to put nsfw in a non-nsfw channel.")
+          await ctx.send("You tried to put nsfw in a non-nsfw channel.")
           return
         """Random"""
         api_base = 'http://api.oboobs.ru/boobs/'
