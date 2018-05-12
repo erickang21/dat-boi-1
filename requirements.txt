@@ -1,4 +1,3 @@
 git+https://github.com/Rapptz/discord.py@rewrite
 git+https://github.com/freetnt5852/idioticapi
 yarl==1.1.1
-psutil
