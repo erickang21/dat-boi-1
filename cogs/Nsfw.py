@@ -38,7 +38,7 @@ class Nsfw:
         self.bot = bot
 
 
-    @@commands.command()
+    @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
     async def boobs(self, ctx):
         '''Get boobs off the internet'''
