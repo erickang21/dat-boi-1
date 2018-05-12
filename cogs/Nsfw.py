@@ -1,9 +1,33 @@
 import discord
+import unicodedata
 from discord.ext import commands
-from discord.ext.commands import Bot
+import time
+import datetime
+import psutil
+import requests
+import ftfy
+import traceback
+import openweathermapy.core as weather
+import platform
+import copy
+import asyncio
+import os
+from xml.etree import ElementTree
+import urllib.parse
+from urllib.request import urlopen
+import aiohttp
+import json
 import random
-import lists
-from lists import blist, plist, alist
+from utils.paginator import Pages
+import io
+import textwrap
+import subprocess
+import inspect
+from urllib.parse import urlencode
+from contextlib import redirect_stdout
+from utils.config import *
+from ext import utils
+from pyfiglet import figlet_format as ascii_format
 
 
 class Nsfw:
