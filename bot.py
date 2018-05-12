@@ -24,6 +24,7 @@ bot.load_extension("cogs.Mod")
 bot.load_extension("cogs.Math")
 bot.load_extension("cogs.Info")
 bot.load_extension("cogs.Idiotic")
+bot.load_extension("cogs.Nsfw")
 
 
 def cleanup_code(content):
