@@ -27,7 +27,7 @@ class Nsfw:
                 data = await data.json()
                 data = data[0]
         image_url = 'http://media.oboobs.ru/' + data['preview']
-        em = discord.Embed(color=passcolor)
+        em = discord.Embed(color=11f95e)
         em.set_author(name="Random image")
         em.set_image(url=image_url)
         em.set_footer(text=f"Requested by ur mom")
