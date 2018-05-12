@@ -1,38 +1,14 @@
 import discord
-import unicodedata
 from discord.ext import commands
-import time
-import datetime
-import psutil
-import requests
-import ftfy
-import traceback
-import openweathermapy.core as weather
-import platform
-import copy
-import asyncio
-import os
-from xml.etree import ElementTree
-import urllib.parse
-from urllib.request import urlopen
-import aiohttp
-import json
+from discord.ext.commands import Bot
 import random
-from utils.paginator import Pages
-import io
-import textwrap
-import subprocess
-import inspect
-from urllib.parse import urlencode
-from contextlib import redirect_stdout
-from utils.config import *
-from ext import utils
-from pyfiglet import figlet_format as ascii_format
+import lists
+from lists import blist, plist, alist
 
 
 class Nsfw:
     '''
-    Nsfw commands :wink:
+    xd
     '''
     def __init__(self, bot):
         self.bot = bot
