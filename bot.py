@@ -100,7 +100,6 @@ async def on_command(ctx):
     embed.add_field(name = "Channel", value = ctx.message.channel.name, inline = True)
     embed.add_field(name = "Author", value = ctx.message.author.name)
     embed.add_field(name = "Content", value = "```{}```".format(ctx.message.clean_content))
-    embed.add_feild(name = "Server ID", value = "{guild.id}")
     await lol.send(embed = embed)
         
         
