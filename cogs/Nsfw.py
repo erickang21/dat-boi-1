@@ -28,9 +28,8 @@ class Nsfw:
                 data = data[0]
         image_url = 'http://media.oboobs.ru/' + data['preview']
         em = discord.Embed(color=0x11f95e)
-        em.set_author(name="Random image")
+        em.set_author(name="Boob Image")
         em.set_image(url=image_url)
-        em.set_footer(text=f"Requested by ur mom")
         await ctx.send(embed=em)
 
 
