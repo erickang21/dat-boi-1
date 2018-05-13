@@ -90,6 +90,19 @@ async def on_guild_remove(guild):
     await lol.send(embed=em)   
         
         
+@bot.event
+async def on_command(ctx):
+    lol = bot.get_channel(445256970786701314)
+    colour = ''.join([random.choice('0123456789ABCDEF') for x in range(6)])
+    colour = int(colour, 16)
+    embed = discord.Embed(title = "Command Executed!", colour = discord.Colour(value = colour), timestamp = datetime.datetime.utcnow())
+    embed.add_field(name = "Server", value = ctx.guild, inline = True)
+    embed.add_field(name = "Channel", value = ctx.message.channel.name, inline = True)
+    embed.add_field(name = "Author", value = ctx.message.author.name)
+    embed.add_field(name = "Content", value = "```{}```".format(ctx.message.clean_content))
+    await lol.send(embed = embed)
+        
+        
 @bot.command()
 async def ping(ctx):
     """Get the bot's Websocket latency."""
