@@ -73,6 +73,7 @@ async def on_guild_join(guild):
     em.title = "I have joined new server!"
     em.description = f"Server: {guild}"
     em.set_footer(text=f"ID: {guild.id}")
+    em.set_thumbnail(url=guild.icon_url)
     await lol.send(embed=em)
     try:
         await guild.channels[0].send(f"Hello my peeps. Im a discord bot created by L3NNY#4519. Try me out by doing ``+help``!")
