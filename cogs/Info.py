@@ -68,15 +68,15 @@ class Info():
 		if member is None:
 			member = ctx.author
 
-		if member.activity is None or member.activity.url is None:
+		if member.game is None or member.game.url is None:
 			if str(member.status) == "online":
-				status_colour = discord.Color.green()
+				status_colour = passcolor
 				status_name = "Online"
 			elif str(member.status) == "idle":
-				status_colour = discord.Color.green()
+				status_colour = passcolor
 				status_name = "Away / Idle"
 			elif str(member.status) == "dnd":
-				status_colour = discord.Color.red()
+				status_colour = failcolor
 				status_name = "Do Not Disturb"
 			elif str(member.status) == "offline" or str(member.status) == "invisible":
 				status_colour = 0x000000
@@ -115,23 +115,19 @@ class Info():
 		#e.add_field(name = 'Voice', value = voice)
 		e.add_field(name = 'Client Status', value = status_name)
 
-		if member.activity is None:
+		if member.game is None:
 			e.add_field(name = 'Doing:', value = "Nothing!")
-		elif member.activity.url is None:
-			e.add_field(name = 'Playing:', value = f"{member.activity}")
+		elif member.game.url is None:
+			e.add_field(name = 'Playing:', value = f"{member.game}")
 		else:
-			e.add_field(name = 'Streaming:', value = f"[{member.activity}]({member.activity.url})")
+			e.add_field(name = 'Streaming:', value = f"[{member.game}]({member.game.url})")
 
 		e.add_field(name = 'Created at', value = member.created_at.__format__('%d. %B %Y\n%H:%M:%S'))
 		e.add_field(name='Highest Role', value = highrole)
 		e.add_field(name = 'Roles', value = ' **|** '.join(roles) if len(roles) < 15 else f'{len(roles)} roles')
 
-		await ctx.send(embed=em)
+		await ctx.send(embed=e)
 
-		
-		
-		
-	
 		
 def setup(bot):
     bot.add_cog(Info(bot))
