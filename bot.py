@@ -88,7 +88,6 @@ async def on_guild_remove(guild):
     em.title = "I have left a server."
     em.description = f"Server: {guild}"
     em.set_footer(text=f"ID: {guild.id}")
-    em.set_thumbnail(url=guild.icon_url)
     await lol.send(embed=em)   
         
         
@@ -99,8 +98,10 @@ async def on_command(ctx):
     colour = int(colour, 16)
     embed = discord.Embed(title = "Command Executed!", colour = discord.Colour(value = colour), timestamp = datetime.datetime.utcnow())
     embed.add_field(name = "Server", value = ctx.guild, inline = True)
+    embed.add_field(name="Server ID", value=ctx.guild.id)
     embed.add_field(name = "Channel", value = ctx.message.channel.name, inline = True)
     embed.add_field(name = "Author", value = ctx.message.author.name)
+    embed.add_field(name="User ID", value=ctx.author.id)
     embed.add_field(name = "Content", value = "```{}```".format(ctx.message.clean_content))
     await lol.send(embed = embed)
         
