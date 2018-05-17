@@ -16,7 +16,7 @@ class Info():
 		
 	@commands.guild_only()
 	@commands.cooldown(1, 10, commands.BucketType.user)
-	@commands.command(aliases=['si'])
+	@commands.command(aliases=['serveri'])
 	async def serverinfo(self, ctx):
 		vchannels = ctx.guild.voice_channels
 		tchannels = ctx.guild.text_channels
@@ -56,7 +56,6 @@ class Info():
 		embed.add_field(name="AFK Channel & Time:", value = f"Channel: **{ctx.guild.afk_channel}**\n" "Time: **{} minutes**".format(int(ctx.guild.afk_timeout / 60)), inline=True)
 		embed.add_field(name="Server Region:", value = '%s'%str(ctx.guild.region), inline=True)
 		embed.add_field(name="Server Roles:", value = '%s'%str(role_length), inline=True)
-		embed.add_field(name=f"Bans:", value=ban_count, inline=False)
 		embed.set_footer(text ='Server Created: %s'%time);
 
 		await ctx.send(embed = embed)
