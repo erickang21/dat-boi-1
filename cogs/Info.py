@@ -61,16 +61,6 @@ class Info():
 		await ctx.send(embed = embed)
 		
 		
-    @commands.command(pass_context=True)
-    async def avatar(self, ctx, *, user: discord.Member=None):
-        """Get user's avatar!"""
-        author = ctx.message.author
-
-        if not user:
-            user = author
-
-        avatar = user.avatar_url
-        await self.bot.say("{}'s Avatar : {}".format(user.name, avatar))
 
 		
 def setup(bot):
