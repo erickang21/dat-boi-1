@@ -12,37 +12,7 @@ class Info():
 		self.bot = bot
 
 
-    @commands.command()
-    async def google(self, ctx, *, query):
-        """Searches google and gives you top result."""
-        await ctx.trigger_typing()
-        try:
-            card, entries = await self.get_google_entries(query)
-        except RuntimeError as e:
-            await ctx.send(str(e))
-        else:
-            if card:
-                value = '\n'.join(f'[{title}]({url.replace(")", "%29")})' for url, title in entries[:3])
-                if value:
-                    card.add_field(name='Search Results', value=value, inline=False)
-                return await ctx.send(embed=card)
-
-            if len(entries) == 0:
-                return await ctx.send('No results found.')
-
-            next_two = [x[0] for x in entries[1:3]]
-            first_entry = entries[0][0]
-            if first_entry[-1] == ')':
-                first_entry = first_entry[:-1] + '%29'
-
-            if next_two:
-                formatted = '\n'.join(f'<{x}>' for x in next_two)
-                msg = f'{first_entry}\n\n**See also:**\n{formatted}'
-            else:
-                msg = first_entry
-
-            await ctx.send(msg)
-		
+    
 		
 	@commands.guild_only()
 	@commands.cooldown(1, 10, commands.BucketType.user)
@@ -90,74 +60,6 @@ class Info():
 
 		await ctx.send(embed = embed)
 		
-		
-	@commands.guild_only()
-	@commands.cooldown(1, 10, commands.BucketType.user)
-	@commands.group(invoke_without_command = True, aliases =  ['ui'])
-	async def userinfo(self, ctx, *, member: discord.Member = None):
-
-		if member is None:
-			member = ctx.author
-
-		if member.game is None or member.game.url is None:
-			if str(member.status) == "online":
-				status_colour = passcolor
-				status_name = "Online"
-			elif str(member.status) == "idle":
-				status_colour = passcolor
-				status_name = "Away / Idle"
-			elif str(member.status) == "dnd":
-				status_colour = failcolor
-				status_name = "Do Not Disturb"
-			elif str(member.status) == "offline" or str(member.status) == "invisible":
-				status_colour = 0x000000
-				status_name = "Offline"
-			else:
-				status_colour = member.colour
-				status_name = "N/A"
-		else:
-			status_colour = 0x593695
-			status_name = "Streaming"
-
-		e = discord.Embed(description = f"**Nickname**: {member.nick}", colour = status_colour)
-		roles = [role.name.replace('@', '@\u200b') for role in member.roles]
-		shared = sum(1 for m in self.bot.get_all_members() if m.id == member.id)
-		voice = member.voice
-
-		highrole = member.top_role.name
-		if highrole == "@everyone":
-			role = "N/A"
-
-		if member.avatar_url[54:].startswith('a_'):
-			avi = 'https://cdn.discordapp.com/avatars/' + member.avatar_url[35:-10]
-		else:
-			avi = member.avatar_url
-
-		if avi:
-			e.set_thumbnail(url = avi)
-			e.set_author(name = str(member), icon_url = avi)
-		else:
-			e.set_thumbnail(url = member.default_avatar_url)
-			e.set_author(name = str(member), icon_url = member.default_avatar_url)
-
-		e.set_footer(text = 'Member since').timestamp = member.joined_at
-		e.add_field(name = 'User ID', value = member.id)
-		e.add_field(name = 'Servers', value = f'{shared} shared')
-		#e.add_field(name = 'Voice', value = voice)
-		e.add_field(name = 'Client Status', value = status_name)
-
-		if member.game is None:
-			e.add_field(name = 'Doing:', value = "Nothing!")
-		elif member.game.url is None:
-			e.add_field(name = 'Playing:', value = f"{member.game}")
-		else:
-			e.add_field(name = 'Streaming:', value = f"[{member.game}]({member.game.url})")
-
-		e.add_field(name = 'Created at', value = member.created_at.__format__('%d. %B %Y\n%H:%M:%S'))
-		e.add_field(name='Highest Role', value = highrole)
-		e.add_field(name = 'Roles', value = ' **|** '.join(roles) if len(roles) < 15 else f'{len(roles)} roles')
-
-		await ctx.send(embed=e)
 
 		
 def setup(bot):
