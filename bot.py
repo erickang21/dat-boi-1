@@ -88,6 +88,7 @@ async def on_guild_remove(guild):
     em.title = "I have left a server."
     em.description = f"Server: {guild}"
     em.set_footer(text=f"ID: {guild.id}")
+    em.set_thumbnail(url=guild.icon_url)
     await lol.send(embed=em)   
         
         
