@@ -56,10 +56,10 @@ class Info():
 		embed.add_field(name="AFK Channel & Time:", value = f"Channel: **{ctx.guild.afk_channel}**\n" "Time: **{} minutes**".format(int(ctx.guild.afk_timeout / 60)), inline=True)
 		embed.add_field(name="Server Region:", value = '%s'%str(ctx.guild.region), inline=True)
 		embed.add_field(name="Server Roles:", value = '%s'%str(role_length), inline=True)
+		embed.add_field(name=f"Bans:", value=ban_count, inline=False)
 		embed.set_footer(text ='Server Created: %s'%time);
 
 		await ctx.send(embed = embed)
-		
 		
 
 		
