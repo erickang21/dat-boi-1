@@ -12,7 +12,7 @@ class Info():
 		self.bot = bot
 
 
-@commands.command(aliases=['g'])
+    @commands.command(aliases=['g'])
     async def google(self, ctx, *, query):
         """Searches google and gives you top result."""
         await ctx.trigger_typing()
