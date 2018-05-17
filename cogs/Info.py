@@ -12,7 +12,7 @@ class Info():
 		self.bot = bot
 
 
-    @commands.command(aliases=['g'])
+    @commands.command()
     async def google(self, ctx, *, query):
         """Searches google and gives you top result."""
         await ctx.trigger_typing()
@@ -28,7 +28,7 @@ class Info():
                 return await ctx.send(embed=card)
 
             if len(entries) == 0:
-                return await ctx.send('No results found... sorry.')
+                return await ctx.send('No results found.')
 
             next_two = [x[0] for x in entries[1:3]]
             first_entry = entries[0][0]
