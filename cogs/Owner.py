@@ -9,7 +9,7 @@ import subprocess
 import json
 
 
-class Developer:
+class Owner:
     def __init__(self, bot):
        self.bot = bot
        self.sessions = set()
