@@ -42,7 +42,6 @@ class Idiotic:
     async def triggered(self, ctx, user: discord.Member = None):
         """Someone is triggered."""
         await ctx.trigger_typing()
-        user = user if user is not None else ctx.author
         try:
             await ctx.send(file=discord.File(await self.client.triggered(user.avatar_url), "triggered.gif"))
         except Exception as e:
