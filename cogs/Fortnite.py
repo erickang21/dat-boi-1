@@ -22,8 +22,8 @@ class Fortnite:
         
         
 @commands.command()
-async def fortnite(self, ctx)
-    await ctx.send("https://www.epicgames.com/fortnite/en-US/home")
+async def fortnite(self, ctx):
+await ctx.send("https://www.epicgames.com/fortnite/en-US/home")
     
     
  def setup(bot):
