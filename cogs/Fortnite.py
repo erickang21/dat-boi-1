@@ -12,13 +12,8 @@ from discord.ext import commands
 
 
 class Fortnite:
-    '''
-    Get information about a Fortnite user
-    '''
-
     def __init__(self, bot):
         self.bot = bot
-        self.client = pynite.Client(os.getenv('FNTOKEN'), timeout=5)
         
         
         
