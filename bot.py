@@ -2,11 +2,7 @@ import discord
 import os
 import io
 import traceback
-from utils.config import *
 import sys
-from motor.motor_asyncio import AsyncIOMotorClient
-from utils.functions import *
-import motor.motor_asyncio 
 import time
 import datetime
 import asyncio
