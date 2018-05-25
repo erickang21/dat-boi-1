@@ -23,5 +23,5 @@ async def fortnite(self, ctx):
     await ctx.send("https://www.epicgames.com/fortnite/en-US/home")
     
     
- def setup(bot):
+def setup(bot):
     bot.add_cog(Fortnite(bot))
