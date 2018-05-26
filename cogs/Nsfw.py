@@ -9,6 +9,8 @@ class Nsfw:
     '''
     def __init__(self, bot):
         self.bot = bot
+        self.hentai = [
+ 'feet', 'yuri', 'trap', 'futanari', 'hololewd', 'lewdkemo', 'solog', 'feetg', 'cum', 'erokemo', 'les', 'wallpaper', 'lewdk', 'ngif', 'meow', 'tickle', 'lewd', 'feed', 'eroyuri', 'eron', 'cum_jpg', 'bj', 'nsfw_neko_gif', 'solo', 'kemonomimi', 'nsfw_avatar', 'anal', 'slap', 'hentai', 'avatar', 'erofeet', 'holo', 'keta', 'blowjob', 'pussy', 'tits', 'holoero', 'pussy_jpg', 'pwankg', 'classic', 'femdom', 'neko', 'cuddle', 'erok', 'fox_girl', 'boobs', 'Random_hentai_gif', 'smallboobs']
 
 
     @commands.command()
@@ -38,20 +40,17 @@ class Nsfw:
         @commands.guild_only()
         @commands.cooldown(1, 0.5, BucketType.user)
         async def hentai(ctx):
-            textchannel = ctx.message.channel
-            await textchannel.trigger_typing()
-            time.sleep(0.5)
-            ch = ctx.message.channel
-            if ch.is_nsfw():
-                page = await bot.http._session.get('https://nekos.life/api/v2/img/Random_hentai_gif')
-                neko = await page.json()
-                em = discord.Embed(title="Heres your hentai", color=0x11f95e)
-                em.set_image(url=neko['url'])
+            if not ctx.channel.nsfw:
+                await ctx.send("Can't send NSFW in an SFW channel")
+            category = random.choice(self.hentai)
+            async with self.bot.http._session.get(f"https://nekos.life/api/v2/img/{category}") as resp:
+                data = await resp.json()
+                em = discord.Embed()
+                em.color = 0x11f95e
+                em.set_image(url=data["url"])
+                em.title = "Hentai"
+                em.set_footer(text=f"Requested by {ctx.author}")
                 await ctx.send(embed=em)
-
-            else:
-                embed = discord.Embed(title="You tried hentai in a non-nsfw channel. :face_palm:", color=0x11f95e)
-                await ctx.send(embed=embed)
 
 
 def setup(bot): 
