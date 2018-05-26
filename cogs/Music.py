@@ -1,0 +1,54 @@
+import asyncio
+import discord
+import youtube_dl
+from discord.ext import commands
+
+ytdl = youtube_dl.YoutubeDL({
+    'format': 'bestaudio/best',
+    'default_search': 'auto',
+    'source_address': '0.0.0.0',
+    'quiet': True
+})
+ffmpeg_options = {
+    'before_options': '-nostdin',
+    'options': '-vn'
+}
+
+class Download(discord.PCMVolumeTransformer):
+    def __init__(self, source, *, data):
+        super().__init__(source, 0.5)
+        self.data = data
+    
+    @classmethod
+    async def from_search_or_url(cls, video, loop=None):
+        data = await loop.run_in_executor(None, lambda: ytdl.extract_info(video, download=False))
+        if 'entries' in data:
+            data = data['entries'][0]
+        
+        filename = data['url']
+        return cls(discord.FFmpegPCMAudio(filename, **ffmpeg_options), data=data)
+
+class Music:
+    def __init__(self, bot):
+        self.bot = bot
+    
+    @commands.command(hidden=True)
+    async def play(self, ctx, *, search):
+        if ctx.voice_client is None:
+            if ctx.author.voice:
+                await ctx.author.voice.channel.connect()
+            else:
+                return await ctx.send("I cant play if im not in a voice channel.")
+
+            async with ctx.typing():
+                try:
+                    player = await Download.from_search_or_url(video=search, loop=self.bot.loop)
+                    ctx.voice_client.play(player)
+                    await ctx.send("Song started playing, I hope.")
+                except Exception as e:
+                    return await ctx.send(":thinking: There was a error:\n```py\n{}: {}```".format(type(e).__name__, e))
+        else:
+            return await ctx.send(":x: I am already playing audio here")
+
+def setup(bot):
+    bot.add_cog(Music(bot))
