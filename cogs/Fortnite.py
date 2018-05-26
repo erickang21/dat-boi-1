@@ -14,13 +14,11 @@ from discord.ext import commands
 class Fortnite:
     def __init__(self, bot):
         self.bot = bot
-        
-        
-        
-@commands.command()
-async def fortnite(self, ctx):
-    """Get fortnite"""
-    await ctx.send("https://www.epicgames.com/fortnite/en-US/home")
+  
+    
+    @commands.commands()
+    async def fortnite(self, ctx):
+        await ctx.send("https://www.epicgames.com/fortnite/en-US/home")
     
     
 def setup(bot):
