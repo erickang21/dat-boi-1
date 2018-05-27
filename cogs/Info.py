@@ -61,8 +61,8 @@ class Info():
 		await ctx.send(embed = embed)
 		
 		
-   @commands.command()
-   async def botinfo(self, ctx):
+    @commands.command(aliases=['info', 'stats'])
+    async def stats(self, ctx):
         """Get my bot info"""
         total_members = 0
         for guild in self.bot.guilds:
