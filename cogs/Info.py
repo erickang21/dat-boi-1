@@ -14,7 +14,7 @@ class Info():
 
     
 		
-	@commands.guild_only()
+        @commands.guild_only()
 	@commands.cooldown(1, 10, commands.BucketType.user)
 	@commands.command(aliases=['serveri'])
 	async def serverinfo(self, ctx):
@@ -61,8 +61,8 @@ class Info():
 		await ctx.send(embed = embed)
 		
 		
-    @commands.command(aliases=['info', 'stats'])
-    async def stats(self, ctx):
+        @commands.command(aliases=['info', 'stats'])
+        async def stats(self, ctx):
         """Get my bot info"""
         total_members = 0
         for guild in self.bot.guilds:
