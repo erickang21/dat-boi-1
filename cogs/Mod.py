@@ -14,6 +14,20 @@ class Mod:
         
         
     @commands.command()
+    @commands.has_permissions(administrator = True)
+    async def msg(self, ctx, user: discord.Member, *, msg: str):
+        """Message someone as me!"""
+        try:
+            await user.send(msg)
+            await ctx.message.delete()            
+            await ctx.send(":PartyGlasses: The message was sent :ThonkerGuns:")
+        except commands.MissingPermissions:
+            await ctx.send("rip. you dont have enough perms. xd")
+        except:
+            await ctx.send(":x: Format: _msg (user tag) (messgae)")
+       
+            
+    @commands.command()
     @commands.has_permissions(manage_messages = True)
     async def purge(self, ctx, num: int):
         """Deletes messages. _purge [number]""" 
