@@ -14,7 +14,7 @@ class Info():
 
     
 		
-        @commands.guild_only()
+	@commands.guild_only()
 	@commands.cooldown(1, 10, commands.BucketType.user)
 	@commands.command(aliases=['serveri'])
 	async def serverinfo(self, ctx):
@@ -60,17 +60,7 @@ class Info():
 
 		await ctx.send(embed = embed)
 		
-		
-    @commands.command()
-    async def shorten(self, ctx, *, url):
-        '''Shorten a link.'''
-        color = discord.Color(value=0x00ff00)
-        em = discord.Embed(color=color, title='Link Shortener')
-        resp = await self.session.get(f'http://tinyurl.com/api-create.php?url={url}')
-        resp = await resp.text()
-        em.description = f"Link: \n{resp}"
-        await ctx.send(embed=em)
-		
+
 		
 def setup(bot):
     bot.add_cog(Info(bot))
