@@ -31,7 +31,19 @@ class Fun:
         embed.add_field(name=":gift::christmas_tree::santa:Time left until Christmas:santa::christmas_tree::gift:", 
             value=f"{weeks} weeks, {days} days, {hours} hours, {minutes} minutes, {seconds} seconds.")
         await ctx.send(embed=embed)
-        
+  
+
+    @commands.command()
+    async def expose(self, ctx, user: discord.Member = None):
+        '''Expose someone!'''
+        if user is None:
+            return await ctx.send(":no_entry_sign: **You need to mention a user.**")
+        try:
+            roasts = ["likes https://pornhub.com/, I found it in their history", "likes your mom.", "copies code from my creator.", "is 97% gay :gay_pride_flag:", "is triple gay."]
+            await ctx.send(f"{user.mention} {random.choice(roasts)}")
+        except commands.errors.BadArgument:
+            return await ctx.send(f":no_entry_sign: **{user}**, is not a valid username or mention")
+
         
 def setup(bot):
     bot.add_cog(Fun(bot))
