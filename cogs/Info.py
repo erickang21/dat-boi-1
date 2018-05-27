@@ -60,7 +60,27 @@ class Info():
 
 		await ctx.send(embed = embed)
 		
-
+		
+   @commands.command()
+   async def botinfo(self, ctx):
+        """Get my bot info"""
+        total_members = 0
+        for guild in self.bot.guilds:
+            total_members = len(guild.members) + total_members
+        em = discord.Embed(color=discord.Color(value=0x00ff00), title='Bot Info')
+        em.description = "My sweeet, sweet bot info!"
+	em.set_thumbnail(url=" https://goo.gl/s15156")        
+        em.add_field(name='Creator', value='L3NNY#4519')
+        em.add_field(name='Developers', value='dat banana boi#1982')
+        em.add_field(name='Servers', value=f'{len(self.bot.guilds)}')
+        em.add_field(name='Total Members', value=total_members)
+	em.add_field(name='Uptime', value="%d days, %d hours, %d minutes, %d seconds" % (day, hour, minute, second))
+	 em.add_field(name='Bot Latency', value=f"{self.bot.latency * 1000:.4f} ms")
+        em.add_field(name='Version', value='0.0.2')
+        em.add_field(name='Start Date', value='4/24/2018')
+        em.add_field(name='Coding Language', value='Python, discord.py')
+        await ctx.send(embed=em)
+		
 		
 def setup(bot):
     bot.add_cog(Info(bot))
