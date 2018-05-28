@@ -55,7 +55,7 @@ class Fun:
         em.add_field(name='Account Created', value=user.created_at.__format__('%A, %B %d, %Y'))
         em.add_field(name='ID', value=f'{user.id}')
         em.add_field(name="Highest Role", value=user.top_role)
-	    em.add_field(name="Joined", value=user.joined_at)
+	em.add_field(name="Joined", value=user.joined_at)
         em.add_field(name='Currently Playing', value=user.activity if user.activity else 'None')
         em.set_thumbnail(url=user.avatar_url)
         await ctx.send(embed=em)  
