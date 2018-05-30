@@ -67,6 +67,7 @@ def dev_check(id):
         
              
 bot.api = idioticapi.Client((os.environ.get("IDIOTICAPI")), dev=True)
+bot.api = weatherapi.Client((os.environ.get("WEATHERAPI")), dev=True)
         
 @bot.event
 async def on_guild_join(guild):
