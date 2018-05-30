@@ -9,3 +9,7 @@ A discord bot made in python, able to take care of your server.
 * Fun Commands
 * IdioticAPI Commands
 * Math Commands 
+
+
+## Extra
+dont copy my code or i will sue you unless you ask me in the support server. 
