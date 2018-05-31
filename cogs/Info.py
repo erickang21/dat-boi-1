@@ -61,7 +61,9 @@ class Info():
 		await ctx.send(embed = embed)
 		 
 			
-        @commands.command()
+        @commands.guild_only()
+	@commands.cooldown(1, 10, commands.BucketType.user)
+	@commands.command()
         async def botinfo(self, ctx):
             """Get my sweet info!"""
             member = 0
