@@ -61,25 +61,25 @@ class Info():
 		await ctx.send(embed = embed)
 		 
 			
-    @commands.command(aliases=['info'])
-    async def botinfo(self, ctx):
-        """Get my sweet info!"""
-        member = 0
-        for i in self.bot.guilds:
-            for x in i.members:
-                member += 1
-        color = discord.Color(value=0x11f95e)
-        embed = discord.Embed(color=color, title="Bot Infomation")
-        embed.description = "Just if you wanted to know..."
-        embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/438487038032085025/0d5cbc6e3a5b16c06183a5ad796fcf74.webp?size=1024")
-        embed.add_field(name=f"Creator", value=f'L3NNY#4519')
-        embed.add_field(name=f"Servers", value=f"{len(self.bot.guilds)}")
-        embed.add_field(name=f"Total Members", value=member)
-        embed.add_field(name=f"Ping", value=f'{self.bot.latency * 100:.4f} ms')
-        embed.add_field(name=f"Version", value='0.0.5')
-        embed.add_field(name=f"Start Date", value="4/24/18")
-        embed.add_field(name=f"Coding Language", value="Python, discord.py")
-        await ctx.send(embed=embed)
+        @commands.command(aliases=['info'])
+        async def botinfo(self, ctx):
+            """Get my sweet info!"""
+            member = 0
+            for i in self.bot.guilds:
+                for x in i.members:
+                    member += 1
+            color = discord.Color(value=0x11f95e)
+            embed = discord.Embed(color=color, title="Bot Infomation")
+            embed.description = "Just if you wanted to know..."
+            embed.set_thumbnail(url="https://cdn.discordapp.com/avatars/438487038032085025/0d5cbc6e3a5b16c06183a5ad796fcf74.webp?size=1024")
+            embed.add_field(name=f"Creator", value=f'L3NNY#4519')
+            embed.add_field(name=f"Servers", value=f"{len(self.bot.guilds)}")
+            embed.add_field(name=f"Total Members", value=member)
+            embed.add_field(name=f"Ping", value=f'{self.bot.latency * 100:.4f} ms')
+            embed.add_field(name=f"Version", value='0.0.5')
+            embed.add_field(name=f"Start Date", value="4/24/18")
+            embed.add_field(name=f"Coding Language", value="Python, discord.py")
+            await ctx.send(embed=embed)
 			
     
 
