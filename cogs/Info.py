@@ -61,7 +61,7 @@ class Info():
 		await ctx.send(embed = embed)
 		 
 			
-        @commands.command(aliases=['info'])
+        @commands.command()
         async def botinfo(self, ctx):
             """Get my sweet info!"""
             member = 0
