@@ -20,7 +20,7 @@ class Mod:
         try:
             await user.send(msg)
             await ctx.message.delete()            
-            await ctx.send(":PartyGlasses: The message was sent :ThonkerGuns:")
+            await ctx.send("The message was sent {self.bot.get_emoji(430848332861276181)}")
         except commands.MissingPermissions:
             await ctx.send("rip. you dont have enough perms. xd")
         except:
@@ -30,21 +30,21 @@ class Mod:
     @commands.command()
     @commands.has_permissions(manage_messages = True)
     async def purge(self, ctx, num: int):
-        """Deletes messages. _purge [number]""" 
+        """Deletes messages. +purge [number]""" 
         try: 
             if num is None:
-                await ctx.send("_purge [number]")
+                await ctx.send("+purge [number]")
             else:
                 try:
                     float(num)
                 except ValueError:
-                    return await ctx.send("The number is invalid. Make sure its a number! _purge [number]")
+                    return await ctx.send("The number is invalid. Make sure its a number! +purge [number]")
                 await ctx.channel.purge(limit=num+1)
                 msg = await ctx.send("Done. ( ͡° ͜ʖ ͡°) ", delete_after=4)
         except discord.Forbidden:
-            await ctx.send("I don't have **Manage Messages** permission.")
+            await ctx.send("I don't have **Manage Messages** permission. {self.bot.get_emoji(430848332861276181)}")
         except commands.errors.MissingPermissions:
-            await ctx.send(" Cant delete messages without perms.")
+            await ctx.send("Cant delete messages without perms. {self.bot.get_emoji(430848332861276181)}")
             
             
     @commands.command()
@@ -66,7 +66,7 @@ class Mod:
         """Ban a member out of your server."""
         try:
             await user.ban()
-            await ctx.channel.send(f"The administrator is getting the ban hammer out of the case. He swings it at {user.mention}. Ouch! {user.mention} has been banned.")
+            await ctx.channel.send(f"The ban hammer has been swung at {user.mention}! {self.bot.get_emoji(430852409380700160)}")
         except discord.Forbidden:
             await ctx.send("00F! I need the **Ban Members or Manage Members** permission.")
         except discord.ext.commands.MissingPermissions:
