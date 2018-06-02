@@ -37,7 +37,6 @@ class Nsfw:
         
         
         @commands.command()
-        @commands.guild_only()
         @commands.cooldown(1, 0.5, BucketType.user)
         async def hentai(self, ctx):
             if not ctx.channel.nsfw:
