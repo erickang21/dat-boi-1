@@ -18,7 +18,7 @@ class Nsfw:
     async def boobs(self, ctx):
         '''Get boobs off the internet'''
         if not ctx.channel.is_nsfw():
-          await ctx.send("You tried to put nsfw in a non-nsfw channel.")
+          await ctx.send("You tried to put nsfw in a non-nsfw channel. :face_palm:")
           return
         """Random"""
         api_base = 'http://api.oboobs.ru/boobs/'
@@ -40,7 +40,7 @@ class Nsfw:
         @commands.cooldown(1, 0.5, BucketType.user)
         async def hentai(self, ctx):
             if not ctx.channel.nsfw:
-                await ctx.send("Can't send NSFW in an SFW channel")
+                await ctx.send("Can't send NSFW in an SFW channel. :face_palm:")
             category = random.choice(self.hentai)
             async with self.bot.http._session.get(f"https://nekos.life/api/v2/img/{category}") as resp:
                 data = await resp.json()
