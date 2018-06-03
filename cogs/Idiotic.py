@@ -53,7 +53,7 @@ class Idiotic:
     async def spank(self, ctx, *, text=None):
         """Spank someone."""
         try:
-            await ctx.send(file=discord.File(await self.client.spank(str(text)), "spank.png"))
+            await ctx.send(file=discord.File(await self.client.super_spank(ctx.author.avatar_url, user.avatar_url), "spank.png"))
         except Exception as e:
             await ctx.send(f"An error occured with the API. \nMore details: \n{e}")
     
