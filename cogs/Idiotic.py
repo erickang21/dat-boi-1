@@ -47,7 +47,16 @@ class Idiotic:
             await ctx.send(file=discord.File(await self.client.triggered(user.avatar_url), "triggered.gif"))
         except Exception as e:
             await ctx.send(f"An error occured with the API. \nMore details: \n{e}")
-       
+            
+            
+    @commands.command()
+    async def spank(self, ctx, *, text=None):
+        """Spank someone."""
+        try:
+            await ctx.send(file=discord.File(await self.client.blame(str(text)), "spank.png"))
+        except Exception as e:
+            await ctx.send(f"An error occured with the API. \nMore details: \n{e}")
+    
             
 def setup(bot):
     bot.add_cog(Idiotic(bot))
