@@ -36,20 +36,20 @@ class Nsfw:
         
         
         
-        @commands.command()
-        @commands.cooldown(1, 5, commands.BucketType.user)
-        async def hentai(self, ctx):
-            if not ctx.channel.nsfw:
-                await ctx.send("Honestly, do you want to kill people with hentai right now? :face_palm:")
-            category = random.choice(self.hentai)
-            async with self.bot.http._session.get(f"https://nekos.life/api/v2/img/{category}") as resp:
-                data = await resp.json()
-                em = discord.Embed()
-                em.color = 0x11f95e
-                em.set_image(url=data["url"])
-                em.title = "Hentai"
-                em.set_footer(text=f"Requested by {ctx.author}")
-                await ctx.send(embed=em)
+    @commands.command()
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    async def hentai(self, ctx):
+        if not ctx.channel.nsfw:
+            return await ctx.send("Honestly, do you want to kill people with hentai right now? :face_palm:")
+        category = random.choice(self.hentai)
+        async with self.bot.http._session.get(f"https://nekos.life/api/v2/img/{category}") as resp:
+            data = await resp.json()
+            em = discord.Embed()
+            em.color = 0x11f95e
+            em.set_image(url=data["url"])
+            em.title = "Hentai"
+            em.set_footer(text=f"Requested by {ctx.author}")
+            await ctx.send(embed=em)
 
 
 def setup(bot): 
