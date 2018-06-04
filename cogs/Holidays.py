@@ -9,8 +9,10 @@ import random
 import json
 from discord.ext import commands
 
-
-
+class Holiday:
+    def __init__(bot):
+        self.bot = bot
+    
     @commands.command()
     async def newyear(self, ctx):
         now = datetime.datetime.utcnow()
@@ -25,8 +27,6 @@ from discord.ext import commands
         embed = discord.Embed(color=0x11f95e)
         embed.add_field(name=f":confetti_ball::calendar:Time left until New Year :calender::confetti_ball:", value=f'{weeks} weeks, {days} days, {hours} hours, {minutes} minutes, {seconds} seconds.')
         await ctx.send(embed=embed)
-        
-        
         
     @commands.command()
     async def christmas(self,ctx):
@@ -43,7 +43,6 @@ from discord.ext import commands
         embed.add_field(name=":gift::christmas_tree::santa:Time left until Christmas:santa::christmas_tree::gift:", 
             value=f"{weeks} weeks, {days} days, {hours} hours, {minutes} minutes, {seconds} seconds.")
         await ctx.send(embed=embed)
-        
         
  def setup(bot):
     bot.add_cog(Holiday(bot))       
