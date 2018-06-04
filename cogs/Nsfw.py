@@ -37,7 +37,7 @@ class Nsfw:
         
         
         @commands.command()
-        @commands.cooldown(1, 0.5, BucketType.user)
+        @commands.cooldown(1, 5, commands.BucketType.user)
         async def hentai(self, ctx):
             if not ctx.channel.nsfw:
                 await ctx.send("Honestly, do you want to kill people with hentai right now? :face_palm:")
