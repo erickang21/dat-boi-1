@@ -44,5 +44,5 @@ class Holiday:
             value=f"{weeks} weeks, {days} days, {hours} hours, {minutes} minutes, {seconds} seconds.")
         await ctx.send(embed=embed)
         
- def setup(bot):
+def setup(bot):
     bot.add_cog(Holiday(bot))       
