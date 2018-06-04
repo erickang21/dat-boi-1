@@ -139,7 +139,7 @@ async def support(ctx):
     await ctx.send("time to join! https://discord.gg/FEPNu3A")      
     
         
-        @bot.command()
+@bot.command()
 @commands.cooldown(1, 3, commands.BucketType.user)
 async def emojify(ctx, *, msg):
         """Turn your text into emojis"""
