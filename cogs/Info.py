@@ -61,31 +61,6 @@ class Info():
 		await ctx.send(embed = embed)
 		 
 			
-    @commands.command()
-    async def feedback(self, ctx, *, pmessage : str = None):
-        """Give some feedback. Also could be use to say something else to my dev."""
-        invite = await ctx.channel.create_invite(max_uses = 1, xkcd = True)
-        dev = self.bot.get_user(453004935727022080)
-
-        if pmessage == None:
-            embed = discord.Embed(description = f"**{ctx.author.name}**, Type a feedback!", color = failcolor)
-            message = await ctx.send(embed = embed)
-            await message.edit(delete_after = 15)
-
-        else:
-            try:
-                embed = discord.Embed(colour = passcolor)
-                embed.set_thumbnail(url = f"{ctx.author.avatar_url}")
-                embed.add_field(name = f"Information: ", value = f"Name: **{ctx.author.name}**\nID: **{ctx.author.id}**\nServer: [**{ctx.guild}**]({invite.url})", inline = False)
-                embed.add_field(name = f"Feedback/Message: ", value = f"{pmessage}", inline = False)
-                await dev.send(embed = embed)
-                embed = discord.Embed(description = f"I have sent a message to my creator. Thanks!", color = passcolor)
-                await ctx.send(embed = embed)
-            except discord.Forbidden:
-                embed = discord.Embed(color = failcolor)
-                embed.add_field(name = "OOF! something happened...", value = f"**{ctx.author.name}**, I cant do this xd", inline = False)
-                await ctx.send(embed = embed)    
-			
     
 
 def setup(bot):
