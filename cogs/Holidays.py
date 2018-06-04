@@ -10,7 +10,7 @@ import json
 from discord.ext import commands
 
 class Holiday:
-    def __init__(bot):
+    def __init__(self, bot):
         self.bot = bot
     
     @commands.command()
