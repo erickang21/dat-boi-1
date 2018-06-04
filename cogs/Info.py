@@ -61,8 +61,7 @@ class Info():
 		await ctx.send(embed = embed)
 		 
 			
-    @commands.cooldown(1, 600, commands.BucketType.user)
-    @commands.command(pass_context = True)
+    @commands.command()
     async def feedback(self, ctx, *, pmessage : str = None):
         """Give some feedback. Also could be use to say something else to my dev."""
         invite = await ctx.channel.create_invite(max_uses = 1, xkcd = True)
