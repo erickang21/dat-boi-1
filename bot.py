@@ -15,6 +15,7 @@ from contextlib import redirect_stdout
 from discord.ext import commands
 import json
 import idioticapi
+import youtube_dl
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('+'), description="A bot made by L3NNY#4519\n\nHelp Commands", owner_id=411683912729755649)
 bot.remove_command("help")
 bot._last_result = None
