@@ -29,6 +29,7 @@ bot.load_extension("cogs.Nsfw")
 bot.load_extension("cogs.Fortnite")
 bot.load_extension("cogs.Economy")
 bot.load_extension("cogs.Holidays")
+bot.load_extension("cogs.Music")
 
 def cleanup_code(content):
     # remove ```py\n```
