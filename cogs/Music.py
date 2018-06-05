@@ -33,7 +33,7 @@ class Music:
         self.bot = bot
     
     @commands.command(hidden=True)
-    async defplay(self, ctx, *, search):
+    async def play(self, ctx, *, search):
         if ctx.voice_client is None:
             if ctx.author.voice:
                 await ctx.author.voice.channel.connect()
