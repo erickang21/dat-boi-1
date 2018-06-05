@@ -38,7 +38,7 @@ class Music:
             if ctx.author.voice:
                 await ctx.author.voice.channel.connect()
             else:
-                return await ctx.send(":x: Please get in a voice channel first.")
+                return await ctx.send(":x: **Please get in a voice channel first.**")
 
             async with ctx.typing():
                 try:
@@ -48,7 +48,7 @@ class Music:
                 except Exception as e:
                     return await ctx.send(":thinking: There was a error:\n```py\n{}: {}```".format(type(e).__name__, e))
         else:
-            return await ctx.send(":x: I am already playing audio here, the queue system will come later.")
+            return await ctx.send(":x: **I am already playing audio here, the queue system will come later.**")
 
 def setup(bot):
     bot.add_cog(Music(bot))
