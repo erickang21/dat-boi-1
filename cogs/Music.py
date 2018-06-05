@@ -32,7 +32,7 @@ class Music:
     def __init__(self, bot):
         self.bot = bot
     
-    @commands.command(hidden=True)
+    @commands.command()
     async def play(self, ctx, *, search):
         if ctx.voice_client is None:
             if ctx.author.voice:
