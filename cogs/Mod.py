@@ -20,11 +20,11 @@ class Mod:
         try:
             await user.send(msg)
             await ctx.message.delete()            
-            await ctx.send("The message was sent {self.bot.get_emoji(430848332861276181)}")
+            await ctx.send("The message was sent")
         except commands.MissingPermissions:
             await ctx.send("rip. you dont have enough perms. xd")
         except:
-            await ctx.send(":x: Format: _msg (user tag) (messgae)")
+            await ctx.send(":x: Format: +msg (user tag) (messgae)")
        
             
     @commands.command()
@@ -42,9 +42,9 @@ class Mod:
                 await ctx.channel.purge(limit=num+1)
                 msg = await ctx.send("Done. ( ͡° ͜ʖ ͡°) ", delete_after=4)
         except discord.Forbidden:
-            await ctx.send("I don't have **Manage Messages** permission. {self.bot.get_emoji(430848332861276181)}")
+            await ctx.send("I don't have **Manage Messages** permission.")
         except commands.errors.MissingPermissions:
-            await ctx.send("Cant delete messages without perms. {self.bot.get_emoji(430848332861276181)}")
+            await ctx.send("Cant delete messages without perms.")
             
             
     @commands.command()
@@ -66,7 +66,7 @@ class Mod:
         """Ban a member out of your server."""
         try:
             await user.ban()
-            await ctx.channel.send(f"The ban hammer has been swung at {user.mention}! {self.bot.get_emoji(430852409380700160)}")
+            await ctx.channel.send(f"The ban hammer has been swung at {user.mention}!")
         except discord.Forbidden:
             await ctx.send("00F! I need the **Ban Members or Manage Members** permission.")
         except discord.ext.commands.MissingPermissions:
@@ -104,7 +104,7 @@ class Mod:
             await ctx.channel.set_permissions(user, send_messages=False)
             return await ctx.send(f"Lol {user.mention} just got muted. ")
         except commands.errors.MissingPermissions:
-            return await ctx.send(":YouTried: You dont have enought permissions.")
+            return await ctx.send("You dont have enought permissions.")
         except discord.Forbidden:
             return await ctx.send("00F! I need the **Manage Channel** permission.")
 
@@ -118,7 +118,7 @@ class Mod:
             await ctx.channel.set_permissions(user, send_messages=True)
             return await ctx.send(f"Times up, {user.mention}. You just got unmuted.")
         except commands.errors.MissingPermissions:
-            return await ctx.send(":YouTried: Cant unmute people with out perms")
+            return await ctx.send(" Cant unmute people with out perms")
         except discord.Forbidden:
             return await ctx.send("00F! I need the **Manage Channel** permission.")
 
