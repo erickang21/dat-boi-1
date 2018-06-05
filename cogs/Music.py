@@ -58,3 +58,13 @@ class Music:
        
        
        
+@commands.command()
+async def play(self, ctx, url):
+    """Play a song of your choice"""
+    player = await YTDLSource.from_url(url, loop=self.bot.loop)
+    ctx.voice_client.play(player, after=lambda e: print('Player error: %s' % e) if e else None, loop=self.bot.loop).result())
+    
+    
+
+def setup(bot):
+    bot.add_cog(Music(bot))
