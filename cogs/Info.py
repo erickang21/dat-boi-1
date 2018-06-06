@@ -25,7 +25,6 @@ class Info:
             av += "&f=.gif"
         em = discord.Embed(title="Avatar", url=av, color=0x11f95e)
         em.set_author(name=str(member)
-        em.set_image(url=av)
         await ctx.send(embed=em)
         
         
