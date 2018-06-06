@@ -14,20 +14,6 @@ class Info:
         self.bot = bot 
         
         
-        
-    @commands.command()
-    @commands.cooldown(1, 3, commands.BucketType.user)
-    async def avatar(self, ctx, *, member: discord.Member = None):
-        '''Gets someones profile picture'''
-        member = member or ctx.author
-        av = member.avatar_url
-        if ".gif" in av:
-            av += "&f=.gif"
-        em = discord.Embed(title="Avatar", url=av, color=0x11f95e)
-        em.set_author(name=str(member)
-        await ctx.send(embed=em)
-        
-        
     @commands.command()
     async def userinfo(self, ctx, user: discord.Member = None):
         """Get a users info"""
