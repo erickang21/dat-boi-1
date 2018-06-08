@@ -12,4 +12,8 @@ A discord bot made in python, able to take care of your server.
 
 
 ## Extra
-Unless you have asked me in the support server, DON'T COPY my code or I will sue you.
+Unless you have asked me in the support server, DON'T COPY my code or I will sue you. 
+
+
+
+Some code is from dat banana boi#1982
