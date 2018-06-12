@@ -42,7 +42,8 @@ class Nsfw:
         if not ctx.channel.nsfw:
             return await ctx.send("Honestly, do you want to kill people with hentai right now? :face_palm:")
         category = random.choice(self.hentai)
-        async with self.bot.http._session.get(f"https://nekos.life/api/v2/img/{category}") as resp:
+        async with aiohttp.ClientSession() as session:
+            async with session.get(f"https://nekos.life/api/v2/img/{category}") as resp:
             data = await resp.json()
             em = discord.Embed()
             em.color = 0x11f95e
