@@ -9,7 +9,7 @@ class Nsfw:
     '''
     def __init__(self, bot):
         self.bot = bot
-        self.hentai = [
+        self._hentai = [
  'feet', 'yuri', 'trap', 'futanari', 'hololewd', 'lewdkemo', 'solog', 'feetg', 'cum', 'erokemo', 'les', 'wallpaper', 'lewdk', 'ngif', 'meow', 'tickle', 'lewd', 'feed', 'eroyuri', 'eron', 'cum_jpg', 'bj', 'nsfw_neko_gif', 'solo', 'kemonomimi', 'nsfw_avatar', 'anal', 'slap', 'hentai', 'avatar', 'erofeet', 'holo', 'keta', 'blowjob', 'pussy', 'tits', 'holoero', 'pussy_jpg', 'pwankg', 'classic', 'femdom', 'neko', 'cuddle', 'erok', 'fox_girl', 'boobs', 'Random_hentai_gif', 'smallboobs']
 
 
@@ -41,7 +41,7 @@ class Nsfw:
     async def hentai(self, ctx):
         if not ctx.channel.nsfw:
             return await ctx.send("Honestly, do you want to kill people with hentai right now? :face_palm:")
-        category = random.choice(self.hentai)
+        category = random.choice(self._hentai)
         async with self.bot.http._session.get(f"https://nekos.life/api/v2/img/{category}") as resp:
             data = await resp.json()
             em = discord.Embed()
