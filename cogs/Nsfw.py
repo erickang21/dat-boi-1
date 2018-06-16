@@ -10,7 +10,7 @@ class Nsfw:
     def __init__(self, bot):
         self.bot = bot
         self._hentai = [
- 'feet', 'yuri', 'trap', 'futanari', 'hololewd', 'lewdkemo', 'solog', 'feetg', 'cum', 'erokemo', 'les', 'wallpaper', 'lewdk', 'ngif', 'meow', 'tickle', 'lewd', 'feed', 'eroyuri', 'eron', 'cum_jpg', 'bj', 'nsfw_neko_gif', 'solo', 'kemonomimi', 'nsfw_avatar', 'anal', 'slap', 'hentai', 'avatar', 'erofeet', 'holo', 'keta', 'blowjob', 'pussy', 'tits', 'holoero', 'pussy_jpg', 'pwankg', 'classic', 'femdom', 'neko', 'cuddle', 'erok', 'fox_girl', 'boobs', 'Random_hentai_gif', 'smallboobs']
+ 'feet', 'yuri', 'lewdkemo', 'solog', 'feetg', 'cum', 'lewdk', 'ngif', 'lewd', 'cum_jpg', 'bj', 'nsfw_neko_gif', 'solo', 'hentai', 'erofeet', 'pussy', 'tits', 'pussy_jpg', 'neko', 'erok', 'fox_girl', 'boobs', 'Random_hentai_gif', 'smallboobs']
 
 
     @commands.command()
