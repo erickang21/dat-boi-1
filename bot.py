@@ -29,6 +29,7 @@ bot.load_extension("cogs.Fortnite")
 bot.load_extension("cogs.Economy")
 bot.load_extension("cogs.Holidays")
 bot.load_extension("cogs.Music")
+bot.load_extenssion("cogs.Info")
 
 
 def cleanup_code(content):
