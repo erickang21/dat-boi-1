@@ -11,7 +11,7 @@ import idioticapi
 from discord.ext import commands
 
 
-class Fun:
+class Usefull:
     def __init__(self, bot):
         self.bot = bot
         
@@ -69,6 +69,14 @@ class Fun:
                 embed.add_field(name = "OOF! something happened...", value = f"**{ctx.author.name}**, I cant do this xd", inline = False)
                 await ctx.send(embed = embed)    
         
+       
+    @commands.command()
+    async def meme(self, ctx):
+        """Pulls a random meme from r/me_irl"""
+        async with aiohttp.ClientSession() as session:
+            async with session.get("https://api.reddit.com/r/me_irl/random") as r:
+                data = await r.json()
+                await ctx.send(data[0]["data"]["children"][0]["data"]["url"])
         
 def setup(bot):
-    bot.add_cog(Fun(bot))
+    bot.add_cog(Usefull(bot))
