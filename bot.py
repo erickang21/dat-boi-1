@@ -19,7 +19,7 @@ import youtube_dl
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('+'), description="A bot made by L3NNY#4519\n\nHelp Commands", owner_id=411683912729755649)
 bot.remove_command("help")
 bot._last_result = None
-bot.load_extension("cogs.Fun")
+bot.load_extension("cogs.Usefull")
 bot.load_extension("cogs.help")
 bot.load_extension("cogs.Mod")
 bot.load_extension("cogs.Math")
@@ -29,6 +29,7 @@ bot.load_extension("cogs.Fortnite")
 bot.load_extension("cogs.Economy")
 bot.load_extension("cogs.Holidays")
 bot.load_extension("cogs.Music")
+
 
 def cleanup_code(content):
     # remove ```py\n```
