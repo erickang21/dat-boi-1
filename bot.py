@@ -30,6 +30,7 @@ bot.load_extension("cogs.Economy")
 bot.load_extension("cogs.Holidays")
 bot.load_extension("cogs.Music")
 bot.load_extension("cogs.Info")
+bot.load_extension("cogs.Devs")
 
 
 def cleanup_code(content):
